@@ -62,7 +62,7 @@ function checklen()
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="index.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>Home</h6></a>
+            <a class="nav-link js-scroll-trigger" href="index.php" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>Home</h6></a>
           </li>
   
           <li class="nav-item" style="margin-right: 40px;">
@@ -93,7 +93,6 @@ function checklen()
 <div class="container register" style="font-family: 'IBM Plex Sans', sans-serif;">
                 <div class="row">
                     <div class="col-md-3 register-left" style="margin-top: 10%;right: 5%">
-                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                         <h3>Welcome</h3>
                        
                     </div>

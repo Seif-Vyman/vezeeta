@@ -76,7 +76,7 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.php">Sign Up</a></li>
+                                        <li><a class="active" href="login.php">Sign Up</a></li>
                                         <li><a class="active" href="index.html">home</a></li>
                                         <li><a href="Department.html">Department</a></li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
