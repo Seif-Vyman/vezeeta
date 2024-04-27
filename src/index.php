@@ -1,219 +1,800 @@
-<html>
+<!doctype html>
+<html class="no-js" lang="zxx">
+
 <head>
-	<title>HMS</title>
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-<link rel="stylesheet" type="text/css" href="style1.css">
-<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Docmed</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-<style >
-     .form-control {
-    border-radius: 0.75rem;
-}
-</style>
-
-<script>
-    var check = function() {
-  if (document.getElementById('password').value ==
-    document.getElementById('cpassword').value) {
-    document.getElementById('message').style.color = '#5dd05d';
-    document.getElementById('message').innerHTML = 'Matched';
-  } else {
-    document.getElementById('message').style.color = '#f55252';
-    document.getElementById('message').innerHTML = 'Not Matching';
-  }
-}
-
-function alphaOnly(event) {
-  var key = event.keyCode;
-  return ((key >= 65 && key <= 90) || key == 8 || key == 32);
-};
-
-function checklen()
-{
-    var pass1 = document.getElementById("password");  
-    if(pass1.value.length<6){  
-        alert("Password must be at least 6 characters long. Try again!");  
-        return false;  
-  }  
-}
-
-</script>
-
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
-<!------ Include the above in your HEAD tag ---------->
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" >
-    <div class="container">
-    <div class="col-xl-3 col-lg-2">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" >
-    <div class="container">
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
 
-      <a class="navbar-brand js-scroll-trigger" href="#" style="margin-top: 10px;margin-left:-65px;font-family: 'IBM Plex Sans', sans-serif;"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="index.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>Home</h6></a>
-          </li>
-  
-          <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="services.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>About Us</h6></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="contact.html" class="fa fa-envelope"  style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>Contact Support</h6></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-                          
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="logo">
-        <a href="index.html">
-         <img src="img/logo.png" alt="">
-         </a>
-        </div>
-    </div>
-  </nav>
-
-	
-
-<div class="container register" style="font-family: 'IBM Plex Sans', sans-serif;">
-                <div class="row">
-                    <div class="col-md-3 register-left" style="margin-top: 10%;right: 5%">
-                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-                        <h3>Welcome</h3>
-                       
-                    </div>
-                    <div class="col-md-9 register-right" style="margin-top: 40px;left: 80px;">
-                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist" style="width: 40%;">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Patient</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Doctor</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Receptionist</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Register as Patient</h3>
-                                <form method="post" action="func2.php">
-                                <div class="row register-form">
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control"  placeholder="First Name *" name="fname"  onkeydown="return alphaOnly(event);" required/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" name="email"  />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="Male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="Female">
-                                                    <span>Female </span> 
-                                                </label>
-                                            </div>
-                                            <a href="index1.php">Already have an account?</a>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <input type="tel" minlength="10" maxlength="10" name="contact" class="form-control" placeholder="Your Phone *"  />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  id="cpassword" placeholder="Confirm Password *" name="cpassword"  onkeyup='check();' required/><span id='message'></span>
-                                        </div>
-                                        <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
-                                    </div>
-
-                                </div>
-                            </form>
-                            </div>
-
-                            
-                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Login as Doctor</h3>
-                                <form method="post" action="func1.php">
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="User Name *" name="username3" onkeydown="return alphaOnly(event);" required/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" name="password3" required/>
-                                        </div>
-                                        
-                                        <input type="submit" class="btnRegister" name="docsub1" value="Login"/>
-                                    </div>
-                                </div>
-                            </form>
-                            </div>
-
-
-                            <div class="tab-pane fade show" id="admin" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Login as Admin</h3>
-                                <form method="post" action="func3.php">
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="User Name *" name="username1" onkeydown="return alphaOnly(event);" required/>
-                                        </div>
-                                        
-
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" name="password2" required/>
-                                        </div>
-                                        
-                                        <input type="submit" class="btnRegister" name="adsub" value="Login"/>
-                                    </div>
-                                </div>
-                            </form>
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div class="header-top_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6 ">
+                            <div class="social_media_links">
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
                             </div>
                         </div>
+                        <div class="col-xl-6 col-md-6">
+                            <div class="short_contact_list">
+                                <ul>
+                                    <li><a href="contact.html"> <i class="fa fa-envelope"></i>Contact Support</a></li>
+                                    <li><a href="#"> <i class="fa fa-phone"></i> 160160</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" href="index.php">Sign Up</a></li>
+                                        <li><a class="active" href="index.html">home</a></li>
+                                        <li><a href="Department.html">Department</a></li>
+                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="single-blog.html">single-blog</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="elements.html">elements</a></li>
+                                                <li><a href="about.html">about</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="Doctors.html">Doctors</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                            <div class="Appointment">
+                                <div class="book_btn d-none d-lg-block">
+                                    <a class="popup-with-form" href="#test-form">Make an Appointment</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
 
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="slider_active owl-carousel">
+            <div class="single_slider  d-flex align-items-center slider_bg_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3> <span>Health care</span> <br>
+                                    For Hole Family </h3>
+                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
+                                    healthcare service provider to consistently.</p>
+                                <a href="#" class="boxed-btn3">Check Our Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider  d-flex align-items-center slider_bg_1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3> <span>Health care</span> <br>
+                                    For Hole Family </h3>
+                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
+                                    healthcare service provider to consistently.</p>
+                                <a href="#" class="boxed-btn3">Check Our Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider  d-flex align-items-center slider_bg_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3> <span>Health care</span> <br>
+                                    For Hole Family </h3>
+                                <p>In healthcare sector, service excellence is the facility of <br> the hospital as
+                                    healthcare service provider to consistently.</p>
+                                <a href="#" class="boxed-btn3">Check Our Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider_area_end -->
+
+    <!-- service_area_start -->
+    <div class="service_area">
+        <div class="container p-0">
+            <div class="row no-gutters">
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_service">
+                        <div class="icon">
+                            <i class="flaticon-electrocardiogram"></i>
+                        </div>
+                        <h3>Hospitality</h3>
+                        <p>Clinical excellence must be the priority for any health care service provider.</p>
+                        <a href="#" class="boxed-btn3-white">Apply For a Bed</a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_service">
+                        <div class="icon">
+                            <i class="flaticon-emergency-call"></i>
+                        </div>
+                        <h3>Emergency Care</h3>
+                        <p>Clinical excellence must be the priority for any health care service provider.</p>
+                        <a href="#" class="boxed-btn3-white">+10 672 356 3567</a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_service">
+                        <div class="icon">
+                            <i class="flaticon-first-aid-kit"></i>
+                        </div>
+                        <h3>Chamber Service</h3>
+                        <p>Clinical excellence must be the priority for any health care service provider.</p>
+                        <a href="#" class="boxed-btn3-white">Make an Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- service_area_end -->
+
+    <!-- welcome_docmed_area_start -->
+    <div class="welcome_docmed_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="welcome_thumb">
+                        <div class="thumb_1">
+                            <img src="img/about/1.png" alt="">
+                        </div>
+                        <div class="thumb_2">
+                            <img src="img/about/2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="welcome_docmed_info">
+                        <h2>Welcome to Docmed</h2>
+                        <h3>Best Care For Your <br>
+                                Good Health</h3>
+                        <p>Esteem spirit temper too say adieus who direct esteem.
+                                It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable projecting expression.</p>
+                        <ul>
+                            <li> <i class="flaticon-right"></i> Apartments frequently or motionless. </li>
+                            <li> <i class="flaticon-right"></i> Duis aute irure dolor in reprehenderit in voluptate.</li>
+                            <li> <i class="flaticon-right"></i> Voluptatem quia voluptas sit aspernatur. </li>
+                        </ul>
+                        <a href="#" class="boxed-btn3-white-2">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- welcome_docmed_area_end -->
+
+    <!-- offers_area_start -->
+    <div class="our_department_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-55">
+                        <h3>Our Departments</h3>
+                        <p>Esteem spirit temper too say adieus who direct esteem. <br>
+                            It esteems luckily or picture placing drawing. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_department">
+                        <div class="department_thumb">
+                            <img src="img/department/1.png" alt="">
+                        </div>
+                        <div class="department_content">
+                            <h3><a href="#">Eye Care</a></h3>
+                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <a href="#" class="learn_more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_department">
+                        <div class="department_thumb">
+                            <img src="img/department/2.png" alt="">
+                        </div>
+                        <div class="department_content">
+                            <h3><a href="#">Physical Therapy</a></h3>
+                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <a href="#" class="learn_more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_department">
+                        <div class="department_thumb">
+                            <img src="img/department/3.png" alt="">
+                        </div>
+                        <div class="department_content">
+                            <h3><a href="#">Dental Care</a></h3>
+                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <a href="#" class="learn_more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_department">
+                        <div class="department_thumb">
+                            <img src="img/department/4.png" alt="">
+                        </div>
+                        <div class="department_content">
+                            <h3><a href="#">Diagnostic Test</a></h3>
+                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <a href="#" class="learn_more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_department">
+                        <div class="department_thumb">
+                            <img src="img/department/5.png" alt="">
+                        </div>
+                        <div class="department_content">
+                            <h3><a href="#">Skin Surgery</a></h3>
+                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <a href="#" class="learn_more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="single_department">
+                        <div class="department_thumb">
+                            <img src="img/department/6.png" alt="">
+                        </div>
+                        <div class="department_content">
+                            <h3><a href="#">Surgery Service</a></h3>
+                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <a href="#" class="learn_more">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- offers_area_end -->
+
+    <!-- testmonial_area_start -->
+    <div class="testmonial_area">
+        <div class="testmonial_active owl-carousel">
+            <div class="single-testmonial testmonial_bg_1 overlay2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-10 offset-xl-1">
+                            <div class="testmonial_info text-center">
+                                <div class="quote">
+                                    <i class="flaticon-straight-quotes"></i>
+                                </div>
+                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
+                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
+                                    <br>
+                                    Fusce ac mattis nulla. Morbi eget ornare dui. </p>
+                                <div class="testmonial_author">
+                                    <h4>Asana Korim</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-testmonial testmonial_bg_2 overlay2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-10 offset-xl-1">
+                            <div class="testmonial_info text-center">
+                                <div class="quote">
+                                    <i class="flaticon-straight-quotes"></i>
+                                </div>
+                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
+                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
+                                    <br>
+                                    Fusce ac mattis nulla. Morbi eget ornare dui. </p>
+                                <div class="testmonial_author">
+                                    <h4>Asana Korim</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-testmonial testmonial_bg_1 overlay2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-10 offset-xl-1">
+                            <div class="testmonial_info text-center">
+                                <div class="quote">
+                                    <i class="flaticon-straight-quotes"></i>
+                                </div>
+                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
+                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
+                                    <br>
+                                    Fusce ac mattis nulla. Morbi eget ornare dui. </p>
+                                <div class="testmonial_author">
+                                    <h4>Asana Korim</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testmonial_area_end -->
+
+    <!-- business_expert_area_start  -->
+    <div class="business_expert_area">
+        <div class="business_tabs_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <ul class="nav" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                            aria-selected="true">Excellent Services</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                            aria-selected="false">Qualified Doctors</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                            aria-selected="false">Emergency Departments</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
             </div>
-    </body>
+        </div>
+        <div class="container">
+            <div class="border_bottom">
+                    <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                
+                                    <div class="row align-items-center">
+                                            <div class="col-xl-6 col-md-6">
+                                                <div class="business_info">
+                                                    <div class="icon">
+                                                        <i class="flaticon-first-aid-kit"></i>
+                                                    </div>
+                                                    <h3>Leading edge care for Your family</h3>
+                                                    <p>Esteem spirit temper too say adieus who direct esteem.
+                                                        It esteems luckily picture placing drawing. Apartments frequently or motionless on
+                                                        reasonable projecting expression.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-md-6">
+                                                <div class="business_thumb">
+                                                    <img src="img/about/business.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row align-items-center">
+                                            <div class="col-xl-6 col-md-6">
+                                                <div class="business_info">
+                                                    <div class="icon">
+                                                        <i class="flaticon-first-aid-kit"></i>
+                                                    </div>
+                                                    <h3>Leading edge care for Your family</h3>
+                                                    <p>Esteem spirit temper too say adieus who direct esteem.
+                                                        It esteems luckily picture placing drawing. Apartments frequently or motionless on
+                                                        reasonable projecting expression.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-md-6">
+                                                <div class="business_thumb">
+                                                    <img src="img/about/business.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="row align-items-center">
+                                            <div class="col-xl-6 col-md-6">
+                                                <div class="business_info">
+                                                    <div class="icon">
+                                                        <i class="flaticon-first-aid-kit"></i>
+                                                    </div>
+                                                    <h3>Leading edge care for Your family</h3>
+                                                    <p>Esteem spirit temper too say adieus who direct esteem.
+                                                        It esteems luckily picture placing drawing. Apartments frequently or motionless on
+                                                        reasonable projecting expression.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-md-6">
+                                                <div class="business_thumb">
+                                                    <img src="img/about/business.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                          </div>
+            </div>
+        </div>
+    </div>
+    <!-- business_expert_area_end  -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    </html>
+    <!-- expert_doctors_area_start -->
+    <div class="expert_doctors_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="doctors_title mb-55">
+                        <h3>Expert Doctors</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="expert_active owl-carousel">
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/1.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/2.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/3.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/4.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/1.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                        <div class="single_expert">
+                            <div class="expert_thumb">
+                                <img src="img/experts/2.png" alt="">
+                            </div>
+                            <div class="experts_name text-center">
+                                <h3>Mirazul Alom</h3>
+                                <span>Neurologist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- expert_doctors_area_end -->
+
+    <!-- Emergency_contact start -->
+    <div class="Emergency_contact">
+        <div class="conatiner-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-xl-6">
+                    <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
+                        <div class="info">
+                            <h3>For Any Emergency Contact</h3>
+                            <p>Esteem spirit temper too say adieus.</p>
+                        </div>
+                        <div class="info_button">
+                            <a href="#" class="boxed-btn3-white">+10 378 4673 467</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
+                        <div class="info">
+                            <h3>Make an Online Appointment</h3>
+                            <p>Esteem spirit temper too say adieus.</p>
+                        </div>
+                        <div class="info_button">
+                            <a href="#" class="boxed-btn3-white">Make an Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Emergency_contact end -->
+
+<!-- footer start -->
+    <footer class="footer">
+            <div class="footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6 col-lg-4">
+                            <div class="footer_widget">
+                                <div class="footer_logo">
+                                    <a href="#">
+                                        <img src="img/footer_logo.png" alt="">
+                                    </a>
+                                </div>
+                                <p>
+                                        Firmament morning sixth subdue darkness 
+                                        creeping gathered divide.
+                                </p>
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-twitter-alt"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                        Departments
+                                </h3>
+                                <ul>
+                                    <li><a href="#">Eye Care</a></li>
+                                    <li><a href="#">Skin Care</a></li>
+                                    <li><a href="#">Pathology</a></li>
+                                    <li><a href="#">Medicine</a></li>
+                                    <li><a href="#">Dental</a></li>
+                                </ul>
+    
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 col-lg-2">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                        Useful Links
+                                </h3>
+                                <ul>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#"> Contact</a></li>
+                                    <li><a href="#"> Appointment</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-lg-3">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                        Address
+                                </h3>
+                                <p>
+                                    200, D-block, Green lane USA <br>
+                                    +10 367 467 8934 <br>
+                                    docmed@contact.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copy-right_text">
+                <div class="container">
+                    <div class="footer_border"></div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <p class="copy_right text-center">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+<!-- footer end  -->
+    <!-- link that opens popup -->
+
+    <!-- form itself end-->
+    <form id="test-form" class="white-popup-block mfp-hide">
+        <div class="popup_box ">
+            <div class="popup_inner">
+                <h3>Make an Appointment</h3>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <input id="datepicker" placeholder="Pick date">
+                        </div>
+                        <div class="col-xl-6">
+                            <input id="datepicker2" placeholder="Suitable time">
+                        </div>
+                        <div class="col-xl-6">
+                            <select class="form-select wide" id="default-select" class="">
+                                <option data-display="Select Department">Department</option>
+                                <option value="1">Eye Care</option>
+                                <option value="2">Physical Therapy</option>
+                                <option value="3">Dental Care</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-6">
+                            <select class="form-select wide" id="default-select" class="">
+                                <option data-display="Doctors">Doctors</option>
+                                <option value="1">Mirazul Alom</option>
+                                <option value="2">Monzul Alom</option>
+                                <option value="3">Azizul Isalm</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="text"  placeholder="Name">
+                        </div>
+                        <div class="col-xl-6">
+                            <input type="text"  placeholder="Phone no.">
+                        </div>
+                        <div class="col-xl-12">
+                            <input type="email"  placeholder="Email">
+                        </div>
+                        <div class="col-xl-12">
+                            <button type="submit" class="boxed-btn3">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </form>
+    <!-- form itself end -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+        $('#datepicker').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
+        });
+        $('#datepicker2').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
+
+        });
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+    </script>
+</body>
+
+</html>
