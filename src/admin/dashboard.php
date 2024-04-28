@@ -64,15 +64,13 @@ if(strlen($_SESSION['id']==0)) {
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
 											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
-											<h2 class="StepTitle">Manage Users</h2>
+											<a href="add-user.php">
+												<h2 class="StepTitle">Add User</h2>
+											</a>
 											
 											<p class="links cl-effect-1">
-												<a href="manage-users.php">
-												<?php $result = mysqli_query($con,"SELECT * FROM users ");
-$num_rows = mysqli_num_rows($result);
-{
-?>
-											Total Users :<?php echo htmlentities($num_rows);  } ?>		
+												<a href="add-user.php">
+												
 												</a>
 											</p>
 										</div>
@@ -82,7 +80,9 @@ $num_rows = mysqli_num_rows($result);
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
 											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-users fa-stack-1x fa-inverse"></i> </span>
-											<h2 class="StepTitle">Manage Doctors</h2>
+											<a href="view-users.php">
+												<h2 class="StepTitle">View Users</h2>
+											</a>
 										
 											<p class="cl-effect-1">
 												<a href="manage-doctors.php">
@@ -90,7 +90,7 @@ $num_rows = mysqli_num_rows($result);
 $num_rows1 = mysqli_num_rows($result1);
 {
 ?>
-											Total Doctors :<?php echo htmlentities($num_rows1);  } ?>		
+											Total Users :<?php echo htmlentities($num_rows1);  } ?>		
 												</a>
 												
 											</p>
@@ -101,16 +101,14 @@ $num_rows1 = mysqli_num_rows($result1);
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
 											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
-											<h2 class="StepTitle"> Appointments</h2>
+											<a href="remove-user.php">	
+												<h2 class="StepTitle"> Delete User</h2>
+											</a>
 											
 											<p class="links cl-effect-1">
-												<a href="book-appointment.php">
-													<a href="appointment-history.php">
-												<?php $sql= mysqli_query($con,"SELECT * FROM appointment");
-$num_rows2 = mysqli_num_rows($sql);
-{
-?>
-											Total Appointments :<?php echo htmlentities($num_rows2);  } ?>	
+												<a href="">
+													<a href="">
+			
 												</a>
 												</a>
 											</p>
@@ -121,8 +119,10 @@ $num_rows2 = mysqli_num_rows($sql);
 <div class="col-sm-4">
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
-											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
-											<h2 class="StepTitle">Manage Patients</h2>
+										<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+											<a href="reports.php">
+												<h2 class="StepTitle">Reports</h2>
+											</a>
 											
 											<p class="links cl-effect-1">
 												<a href="manage-patient.php">
@@ -130,7 +130,7 @@ $num_rows2 = mysqli_num_rows($sql);
 $num_rows = mysqli_num_rows($result);
 {
 ?>
-Total Patients :<?php echo htmlentities($num_rows);  
+Total reports :<?php echo htmlentities($num_rows);  
 } ?>		
 </a>
 											</p>
@@ -140,30 +140,27 @@ Total Patients :<?php echo htmlentities($num_rows);
 
 
 
-
-
 			<div class="col-sm-4">
-									<div class="panel panel-white no-radius text-center">
+			<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
-											<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
-											<h2 class="StepTitle"> New Queries</h2>
+										<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+											<a href="edit-products.php">
+												<h2 class="StepTitle">Update Products</h2>
+											</a>
 											
 											<p class="links cl-effect-1">
-												<a href="book-appointment.php">
-													<a href="unread-queries.php">
-												<?php 
-$sql= mysqli_query($con,"SELECT * FROM tblcontactus where  IsRead is null");
-$num_rows22 = mysqli_num_rows($sql);
+												<a href="manage-patient.php">
+<?php $result = mysqli_query($con,"SELECT * FROM tblpatient ");
+$num_rows = mysqli_num_rows($result);
+{
 ?>
-											Total New Queries :<?php echo htmlentities($num_rows22);   ?>	
-												</a>
-												</a>
+Total reports :<?php echo htmlentities($num_rows);  
+} ?>		
+</a>
 											</p>
 										</div>
 									</div>
-								</div>
-
-
+			</div>
 
 							</div>
 						</div>
@@ -183,7 +180,7 @@ $num_rows22 = mysqli_num_rows($sql);
 			<!-- end: FOOTER -->
 		
 			<!-- start: SETTINGS -->
-	<?php include('include/setting.php');?>
+	
 		
 			<!-- end: SETTINGS -->
 		</div>
