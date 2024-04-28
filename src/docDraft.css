@@ -13,7 +13,7 @@
     header {
       z-index: 1000;
       height: 90px;
-      background-color: rgb(107, 193, 247);
+      background-color: rgb(131, 199, 241);
       box-shadow: 0 0 2px 2px rgba(79, 173, 187, 0.5);
       color: rgb(65, 64, 64);
       padding: 8px;
@@ -24,23 +24,38 @@
   
     header h1{
       font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      padding-top: 10px;
+      padding-top: 15px;
+    }
+    nav {
+        height: 100vh; 
+        background-color: rgb(233, 235, 236);
+        box-shadow: 0 0 2px 2px rgba(79, 173, 187, 0.5);
+        color: rgb(65, 64, 64);
+        padding: 8px;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 200px; 
+        overflow-y: auto; 
     }
   
     nav ul {
+      margin-top: 5rem;
       list-style-type: none;
       font-weight: bold;
       padding: 8px;
     }
   
     nav ul li {
-      display: inline;
+      border-bottom: 1px solid #ccc; ;
       margin-right: 1rem;
-      width: 50px;
+      margin-bottom: 0.8rem;
+      width: 100%;
     }
   
     nav ul li :hover{
-      color:#f8f7f7;
+      color:#837d7d;
       border-radius: 8%;
     }
   
@@ -58,11 +73,14 @@
     }
   
     section {
+      /* max-width: 800px; */
       background-color: rgba(23, 162, 184, 0.2);
       padding: 1.5rem;
-      margin: 1.5rem;
+      margin: 1.5rem auto;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      overflow-y: auto; 
+      max-width: 550px;
       /* box-shadow: 1px 5px 2px #0456c8 */
     }
     section p{
