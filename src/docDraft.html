@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="docDraft.css" />
+  <title>Doctor Dashboard</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome, Dr. [Doctor's Name]</h1>
+    <nav>
+      <ul>
+        <li><a href="#update-details">Update Details</a></li>
+        <li><a href="#questions">Answer Questions</a></li>
+        <li><a href="#appointments">Scheduled Appointments</a></li>
+        <li><a href="#postblog">Post Blog</a></li>
+        <li><a href="#logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="doctor-details">
+      <h2>Your Details</h2>
+      <p><strong>Name:</strong> Dr. [Doctor's Name]</p>
+      <p><strong>Speciality:</strong> [Doctor's Speciality]</p>
+      <p><strong>About:</strong> [Doc desc]</p>
+      <p><strong>Location:</strong> [Doctor's Location]</p>
+      <p><strong>Insurance Accepted:</strong> [List of Accepted Insurances]</p>
+    </section>
+
+    <section id="update-details">
+      <h2 style="margin-bottom: 20px" >Update Your Details</h2>
+      <form action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="speciality">Speciality:</label>
+        <input type="text" id="speciality" name="speciality"  required>
+
+        <label for="about">About:</label>
+        <input type="text" id="about" name="about" required>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="insurance">Insurance Accepted:</label>
+        <textarea id="insurance" name="insurance" required></textarea>
+
+        <button type="submit">Update Details</button>
+      </form>
+    </section>
+
+    <section id="questions">
+      <h2>Answer Patient Questions</h2>
+      <ul>
+        <li>
+          <strong>Patient Name:</strong> [Patient's Name]<br>
+          <strong>Question:</strong> [Patient's Question]<br>
+          <form action="#" method="POST">
+            <label for="answer">Your Answer:</label><br>
+            <textarea id="answer" name="answer" required></textarea><br>
+            <button type="submit">Submit Answer</button>
+          </form>
+        </li>
+        <li>
+          <strong>Patient Name:</strong> [Patient's Name]<br>
+          <strong>Question:</strong> [Patient's Question]<br>
+          <form action="#" method="POST">
+            <label for="answer">Your Answer:</label><br>
+            <textarea id="answer" name="answer" required></textarea><br>
+            <button type="submit">Submit Answer</button>
+          </form>
+        </li>
+        <!-- Repeat for each question -->
+      </ul>
+    </section>
+
+    <section id="appointments">
+      <h2>Scheduled Appointments</h2>
+      <ul>
+        <li>
+          <strong>Date:</strong> [Appointment Date]<br>
+          <strong>Time:</strong> [Appointment Time]<br>
+          <strong>Type:</strong> [Appointment Type]<br>
+          <strong>Patient Name:</strong> [Patient's Name]<br>
+        </li>
+        <li>
+          <strong>Date:</strong> [Appointment Date]<br>
+          <strong>Time:</strong> [Appointment Time]<br>
+          <strong>Type:</strong> [Appointment Type]<br>
+          <strong>Patient Name:</strong> [Patient's Name]<br>
+        </li>
+        <!-- Repeat for each appointment -->
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
