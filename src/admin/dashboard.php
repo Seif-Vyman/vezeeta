@@ -2,17 +2,18 @@
 session_start();
 error_reporting(0);
 include('include/config.php');
-if(strlen($_SESSION['id']==0)) {
- header('location:logout.php');
-  } else{
+if (strlen($_SESSION['id'] == 0)) {
+	header('location:logout.php');
+} else {
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
+	<!DOCTYPE html>
+	<html lang="en">
+
 	<head>
-		<title>Admin  | Dashboard</title>
-		
+		<title>Admin | Dashboard</title>
+
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
@@ -30,22 +31,23 @@ if(strlen($_SESSION['id']==0)) {
 
 
 	</head>
+
 	<body>
-		<div id="app">		
-<?php include('include/sidebar.php');?>
+		<div id="app">
+			<?php include('include/sidebar.php'); ?>
 			<div class="app-content">
-				
-						<?php include('include/header.php');?>
-						
+
+				<?php include('include/header.php'); ?>
+
 				<!-- end: TOP NAVBAR -->
-				<div class="main-content" >
+				<div class="main-content">
 					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
 									<h1 class="mainTitle">Admin | Dashboard</h1>
-																	</div>
+								</div>
 								<ol class="breadcrumb">
 									<li>
 										<span>Admin</span>
@@ -58,7 +60,7 @@ if(strlen($_SESSION['id']==0)) {
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
-							<div class="container-fluid container-fullw bg-white">
+						<div class="container-fluid container-fullw bg-white">
 							<div class="row">
 								<div class="col-sm-4">
 									<div class="panel panel-white no-radius text-center">
@@ -67,10 +69,10 @@ if(strlen($_SESSION['id']==0)) {
 											<a href="add-user.php">
 												<h2 class="StepTitle">Add User</h2>
 											</a>
-											
+
 											<p class="links cl-effect-1">
 												<a href="add-user.php">
-												
+
 												</a>
 											</p>
 										</div>
@@ -83,16 +85,16 @@ if(strlen($_SESSION['id']==0)) {
 											<a href="view-users.php">
 												<h2 class="StepTitle">View Users</h2>
 											</a>
-										
+
 											<p class="cl-effect-1">
 												<a href="manage-doctors.php">
-												<?php $result1 = mysqli_query($con,"SELECT * FROM doctors ");
-$num_rows1 = mysqli_num_rows($result1);
-{
-?>
-											Total Users :<?php echo htmlentities($num_rows1);  } ?>		
+													<?php $result1 = mysqli_query($con, "SELECT * FROM doctors ");
+													$num_rows1 = mysqli_num_rows($result1); {
+													?>
+														Total Users :<?php echo htmlentities($num_rows1);
+																				} ?>
 												</a>
-												
+
 											</p>
 										</div>
 									</div>
@@ -101,38 +103,37 @@ $num_rows1 = mysqli_num_rows($result1);
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
 											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
-											<a href="remove-user.php">	
+											<a href="remove-user.php">
 												<h2 class="StepTitle"> Delete User</h2>
 											</a>
-											
+
 											<p class="links cl-effect-1">
 												<a href="">
 													<a href="">
-			
-												</a>
+
+													</a>
 												</a>
 											</p>
 										</div>
 									</div>
 								</div>
 
-<div class="col-sm-4">
+								<div class="col-sm-4">
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
-										<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+											<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
 											<a href="reports.php">
 												<h2 class="StepTitle">Reports</h2>
 											</a>
-											
+
 											<p class="links cl-effect-1">
 												<a href="manage-patient.php">
-<?php $result = mysqli_query($con,"SELECT * FROM tblpatient ");
-$num_rows = mysqli_num_rows($result);
-{
-?>
-Total reports :<?php echo htmlentities($num_rows);  
-} ?>		
-</a>
+													<?php $result = mysqli_query($con, "SELECT * FROM tblpatient ");
+													$num_rows = mysqli_num_rows($result); {
+													?>
+														Total reports :<?php echo htmlentities($num_rows);
+																					} ?>
+												</a>
 											</p>
 										</div>
 									</div>
@@ -140,48 +141,47 @@ Total reports :<?php echo htmlentities($num_rows);
 
 
 
-			<div class="col-sm-4">
-			<div class="panel panel-white no-radius text-center">
+								<div class="col-sm-4">
+									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
-										<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+											<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
 											<a href="edit-products.php">
 												<h2 class="StepTitle">Update Products</h2>
 											</a>
-											
+
 											<p class="links cl-effect-1">
 												<a href="manage-patient.php">
-<?php $result = mysqli_query($con,"SELECT * FROM tblpatient ");
-$num_rows = mysqli_num_rows($result);
-{
-?>
-Total reports :<?php echo htmlentities($num_rows);  
-} ?>		
-</a>
+													<?php $result = mysqli_query($con, "SELECT * FROM tblpatient ");
+													$num_rows = mysqli_num_rows($result); {
+													?>
+														Total reports :<?php echo htmlentities($num_rows);
+																					} ?>
+												</a>
 											</p>
 										</div>
 									</div>
-			</div>
+								</div>
 
 							</div>
 						</div>
-			
-					
-					
-						
-						
-					
+
+
+
+
+
+
 						<!-- end: SELECT BOXES -->
-						
+
 					</div>
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
+			<?php include('include/footer.php'); ?>
 			<!-- end: FOOTER -->
-		
+
 			<!-- start: SETTINGS -->
-	
-		
+
+
 			<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->
@@ -215,5 +215,6 @@ Total reports :<?php echo htmlentities($num_rows);
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
-</html>
+
+	</html>
 <?php } ?>
