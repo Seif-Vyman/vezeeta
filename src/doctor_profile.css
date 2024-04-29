@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: #333;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px 0;
+}
+
+.doctor-profile {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.profile-header {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h1 {
+    margin: 0;
+}
+
+.specialty {
+    color: #666;
+}
+
+.ratings {
+    margin-top: 5px;
+}
+
+.rating {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.stars {
+    font-size: 1.2em;
+    color: #4CAF50;
+}
+
+.profile-body {
+    padding: 20px;
+}
+
+.description {
+    color: #666;
+}
+
+.details {
+    list-style-type: none;
+    padding: 0;
+}
+
+.details li {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
