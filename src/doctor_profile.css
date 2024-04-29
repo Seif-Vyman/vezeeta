@@ -29,6 +29,7 @@ main {
     padding: 20px 0;
 }
 
+
 .doctor-profile {
     background-color: #fff;
     border-radius: 10px;
@@ -36,6 +37,7 @@ main {
     overflow: hidden;
     margin-bottom: 20px;
 }
+
 
 .profile-header {
     display: flex;
@@ -46,7 +48,7 @@ main {
 .profile-img img {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 50% !important;
     margin-right: 20px;
 }
 
@@ -69,16 +71,23 @@ main {
 .rating {
     font-size: 1.2em;
     font-weight: bold;
-    color: #4CAF50;
+    color: #1a1a1a;
 }
 
 .stars {
     font-size: 1.2em;
-    color: #4CAF50;
+    color: #f3f703;
 }
 
 .profile-body {
     padding: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.description-container {
+    flex: 1; /* Occupy remaining space */
+    margin-right: 20px; /* Add space between description and booking info */
 }
 
 .description {
@@ -88,6 +97,10 @@ main {
 .details {
     list-style-type: none;
     padding: 0;
+}
+
+.details p {
+    color: #666; /* Match the text color of the page */
 }
 
 .details li {
@@ -100,3 +113,58 @@ footer {
     text-align: center;
     padding: 10px 0;
 }
+
+.bookinginfo {
+    margin-top: -18px;
+    margin-left: auto; 
+    width: 40%; 
+    background-color: #f0f8ff; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.booking-title h3{
+    font-weight: bold;
+    color: #008fe7;
+    padding: 5px 0;
+    text-align: center;
+    text-size-adjust: 40;
+}
+
+.book-appointment {
+    margin-top: 20px; /* Add margin-top as needed */
+    text-align: center;
+}
+
+.book-appointment a {
+    background-color: #009DFF; /* Blue color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.line {
+    width: 200%;
+    height: 1px;
+    background-color: #ccc; /* Color of the line */
+    box-shadow: 0px 2px 5px rgba(80, 80, 80, 0.1); /* Shadow effect */
+    margin: 10px 0; /* Adjust margin as needed */
+}
+
+.feedback-container {
+    margin-left: 1cm; /* Adjust the margin as needed */
+}
+
+
+.feedback-container button[type="submit"] {
+    padding: 8px 16px; /* Adjust padding for button size */
+    font-size: 14px;
+    background-color: #007bff; /* Change background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+}
+
