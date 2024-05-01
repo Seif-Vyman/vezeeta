@@ -164,7 +164,7 @@
               <img src="img/pharmacy/detol.jpg" alt="">
             </div>
             <div class="experts_name text-center">
-              <h3>Mirazul Alom 3$</h3>
+              <h3>ditol 3$</h3>
               <button class="cart_button">add to cart</button>
             </div>
           </div>
@@ -172,10 +172,10 @@
         <div class="col-md-6 col-lg-3">
           <div class="single_expert mb-40">
             <div class="expert_thumb">
-              <img src="img/pharmacy/detol.jpg" alt="">
+              <img src="img/pharmacy/7asasya.jpg" alt="">
             </div>
             <div class="experts_name text-center">
-              <h3>Mirazul Alom 3$</h3>
+              <h3>7asasya 8$</h3>
               <button class="cart_button">add to cart</button>
             </div>
           </div>
