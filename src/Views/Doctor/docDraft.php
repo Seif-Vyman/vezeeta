@@ -11,10 +11,10 @@
     <h1>Welcome, Dr. [Doctor's Name]</h1>
     <nav>
       <ul>
-        <li><a href="docDraft.html">Profile</a></li>
-        <li><a href="updateDoc.html">Update Details</a></li>
-        <li><a href="ansDoc.html">Answer Questions</a></li>
-        <li><a href="schedDoc.html">Scheduled Appointments</a></li>
+        <li><a href="docDraft.php">Profile</a></li>
+        <li><a href="updateDoc.php">Update Details</a></li>
+        <li><a href="ansDoc.php">Answer Questions</a></li>
+        <li><a href="schedDoc.php">Scheduled Appointments</a></li>
         <li><a href="#postblog">Post Blog</a></li>
         <li><a href="#logout">Logout</a></li>
       </ul>

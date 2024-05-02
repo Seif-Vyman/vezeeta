@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="docDraft2.css" />
   <title>Doctor Dashboard</title>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome, Dr. [Doctor's Name]</h1>
-        <nav>
-          <ul>
-            <li><a href="docDraft.html">Profile</a></li>
-            <li><a href="updateDoc.html">Update Details</a></li>
-            <li><a href="ansDoc.html">Answer Questions</a></li>
-            <li><a href="schedDoc.html">Scheduled Appointments</a></li>
-            <li><a href="#postblog">Post Blog</a></li>
-            <li><a href="#logout">Logout</a></li>
-          </ul>
-        </nav>
-      </header>
-<section id="appointments">
+  <header>
+    <h1>Welcome, Dr. [Doctor's Name]</h1>
+    <nav>
+      <ul>
+        <li><a href="docDraft.php">Profile</a></li>
+        <li><a href="updateDoc.php">Update Details</a></li>
+        <li><a href="ansDoc.php">Answer Questions</a></li>
+        <li><a href="schedDoc.php">Scheduled Appointments</a></li>
+        <li><a href="#postblog">Post Blog</a></li>
+        <li><a href="#logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="appointments">
     <h2>Scheduled Appointments</h2>
     <ul>
       <li>
@@ -46,6 +48,7 @@
       <!-- Repeat for each appointment -->
     </ul>
   </section>
-</main>
+  </main>
 </body>
+
 </html>

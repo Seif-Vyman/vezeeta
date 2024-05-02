@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="docDraft2.css" />
   <title>Doctor Dashboard</title>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome, Dr. [Doctor's Name]</h1>
-        <nav>
-          <ul>
-            <li><a href="docDraft.html">Profile</a></li>
-            <li><a href="updateDoc.html">Update Details</a></li>
-            <li><a href="ansDoc.html">Answer Questions</a></li>
-            <li><a href="schedDoc.html">Scheduled Appointments</a></li>
-            <li><a href="#postblog">Post Blog</a></li>
-            <li><a href="#logout">Logout</a></li>
-          </ul>
-        </nav>
-      </header>
-<section id="update-details">
-    <h2 style="margin-bottom: 20px" >Update Your Details</h2>
+  <header>
+    <h1>Welcome, Dr. [Doctor's Name]</h1>
+    <nav>
+      <ul>
+        <li><a href="docDraft.php">Profile</a></li>
+        <li><a href="updateDoc.php">Update Details</a></li>
+        <li><a href="ansDoc.php">Answer Questions</a></li>
+        <li><a href="schedDoc.php">Scheduled Appointments</a></li>
+        <li><a href="#postblog">Post Blog</a></li>
+        <li><a href="#logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="update-details">
+    <h2 style="margin-bottom: 20px">Update Your Details</h2>
     <form action="#" method="POST">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
 
       <label for="speciality">Speciality:</label>
-      <input type="text" id="speciality" name="speciality"  required>
+      <input type="text" id="speciality" name="speciality" required>
 
       <label for="about">About:</label>
       <input type="text" id="about" name="about" required>
@@ -41,6 +43,7 @@
       <button type="submit">Update Details</button>
     </form>
   </section>
-</main>
+  </main>
 </body>
+
 </html>
