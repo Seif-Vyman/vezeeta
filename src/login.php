@@ -81,7 +81,7 @@ function checklen()
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="logo">
-        <a href="index.html">
+        <a href="index.php">
          <img src="img/logo.png" alt="">
          </a>
         </div>
