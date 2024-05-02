@@ -57,23 +57,28 @@
 								<i class="ti-files"></i>
 							</div>
 							<div class="item-inner">
+								<span class="title"> Products </span><i class="icon-arrow"></i>
+							</div>
+						</div>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="add-products.php">
+								<span class="title"> Add Products </span>
+							</a>
+						</li>
+						<li>
+							<a href="remove-products.php">
+								<span class="title"> Remove Products </span>
+							</a>
+						</li>
+						<li>
+							<a href="update-products.php">
 								<span class="title"> Update Products </span>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="reports.php">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-files"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> Reports </span>
-							</div>
-						</div>
-					</a>
-				</li>
+							</a>
+						</li>
+
+					</ul>
 				</li>
 
 			</ul>

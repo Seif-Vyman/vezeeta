@@ -6,11 +6,18 @@ if(strlen($_SESSION['id']==0)) {
  header('location:logout.php');
   } else{
 
+
+if(isset($_GET['del']))
+		  {
+		  	$docid=$_GET['id'];
+		          mysqli_query($con,"delete from doctors where id ='$docid'");
+                  $_SESSION['msg']="data deleted !!";
+		  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>B/w dates reports | Admin</title>
+		<title>Admin | Manage Doctors</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -26,8 +33,6 @@ if(strlen($_SESSION['id']==0)) {
 		<link rel="stylesheet" href="assets/css/styles.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-
-
 	</head>
 	<body>
 		<div id="app">		
@@ -35,7 +40,7 @@ if(strlen($_SESSION['id']==0)) {
 			<div class="app-content">
 				
 						<?php include('include/header.php');?>
-						
+					
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content" >
 					<div class="wrap-content container" id="container">
@@ -43,19 +48,22 @@ if(strlen($_SESSION['id']==0)) {
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Reports</h1>
+									<h1 class="mainTitle">Admin | Remove Users</h1>
 																	</div>
 								<ol class="breadcrumb">
+									<li>
+										<span>Admin</span>
+									</li>
 									<li class="active">
-										<span>Reports</span>
+										<span>Remove Users</span>
 									</li>
 								</ol>
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->
-						<!-- start: BASIC EXAMPLE -->
 						
-						<!-- end: BASIC EXAMPLE -->				
+						<!-- end: SELECT BOXES -->
+						
 					</div>
 				</div>
 			</div>
