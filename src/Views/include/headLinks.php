@@ -21,5 +21,29 @@
     <link rel="stylesheet" href="../../css/animate.css">
     <link rel="stylesheet" href="../../css/slicknav.css">
     <link rel="stylesheet" href="../../css/style.css">
+    
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    
+    <style>
+        .logout-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+/* 
+        #SearchForm {
+            float: right;
+            margin-right: 0px;
+            margin-top: 10px;
+            width: 150px;
+            padding-left: 10px;
+            margin-left: 0px;
+            height: 70px;
+            display: inline;
+        } */
+        
+    </style>
 </head>

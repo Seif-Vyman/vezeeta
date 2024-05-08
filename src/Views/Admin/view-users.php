@@ -1,30 +1,51 @@
 <?php
+require_once '../../Models/user.php';
+require_once '../../Controllers/DBController.php';
+require_once '../../Controllers/AuthController.php';
+require_once '../../Controllers/UsersController.php';
 session_start();
-error_reporting(0);
-include('include/config.php');
-if(strlen($_SESSION['id']==0)) {
- header('location:logout.php');
-  } else{
+// print_r($_SESSION);
+//error_reporting(0);
+$db = new DBController;
+$new = new UsersController;
+$users = $new->getAllUsers();
+//$db->openConnection();
 
-if(isset($_POST['submit']))
-{
-$doctorspecilization=$_POST['doctorspecilization'];
-$sql=mysqli_query($con,"insert into doctorSpecilization(specilization) values('$doctorspecilization')");
-$_SESSION['msg']="Doctor Specialization added successfully !!";
-}
-//Code Deletion
-if(isset($_GET['del']))
-{
-$sid=$_GET['id'];	
-mysqli_query($con,"delete from doctorSpecilization where id = '$sid'");
-$_SESSION['msg']="data deleted !!";
+if (strlen($_SESSION['userId'] == 0)) {
+	header('location:logout.php');
+} else {
+
+
+	if (isset($_POST['del'])) {
+
+		// print_r($_POST);
+
+		if ($new->deleteUser($_POST['i'])) {
+			$deleteMsg = true;
+
+			$users = $new->getAllUsers();
+			header('Location: view-users.php');
+		}
+	}
+	if(isset($_POST['edit'])){
+				$_SESSION['Ei'] =  $_POST["i"];
+        $_SESSION['Ef'] = $_POST['f'];
+        $_SESSION['El'] = $_POST['l'];
+        $_SESSION['Ee'] = $_POST['e'];
+        $_SESSION['Ep'] = $_POST['p'];
+        $_SESSION['Eph'] = $_POST['ph'];
+        $_SESSION['Ec'] = $_POST['c'];
+        $_SESSION['Eci'] = $_POST['ci'];
+		header('Location: editu.php');
+	 }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
+	<!DOCTYPE html>
+	<html lang="en">
+
 	<head>
-		<title>Admin | Doctor Specialization</title>
-	
+		<title>Admin | View Products</title>
+
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
@@ -40,43 +61,123 @@ $_SESSION['msg']="data deleted !!";
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	</head>
+
 	<body>
-		<div id="app">		
-<?php include('include/sidebar.php');?>
+		<div id="app">
+			<?php include('include/sidebar.php'); ?>
 			<div class="app-content">
-				
-						<?php include('include/header.php');?>
-					
+
+				<?php include('include/header.php'); ?>
+
 				<!-- end: TOP NAVBAR -->
-				<div class="main-content" >
+				<div class="main-content">
 					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
 									<h1 class="mainTitle">Admin | View Users</h1>
-																	</div>
+								</div>
 								<ol class="breadcrumb">
 									<li>
 										<span>Admin</span>
 									</li>
 									<li class="active">
-										<span>View Users </span>
+										<span>View Users</span>
 									</li>
 								</ol>
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->
+						<!-- start: BASIC EXAMPLE -->
+						<div class="container-fluid container-fullw bg-white">
+
+
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title margin-bottom-15">View <span class="text-bold">Users</span></h5>
+									
+									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
+										<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
+									<table class="table table-hover" id="sample-table-1">
+										<thead>
+											<tr>
+												<th class="center">User ID</th>
+												<th>firstName</th>
+												<th>lastName</th>
+												<th>email </th>
+												<th>password </th>
+												<th>phoneNum </th>
+												<th>country </th>
+												<th>city </th>
+												<th>userRole </th>
+												<th>Action</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$cnt = 0;
+											foreach ($users as $user) {
+											?>
+
+												<tr>
+													<td class="center"><?php echo $user['userId']; ?></td>
+													<td><?php echo $user['firstName']; ?></td>
+													<td><?php echo $user['lastName']; ?></td>
+													<td><?php echo $user['email']; ?></td>
+													<td><?php echo $user['password']; ?></td>
+													<td><?php echo $user['phoneNum']; ?></td>
+													<td><?php echo $user['country']; ?></td>
+													<td><?php echo $user['city']; ?></td>
+													<td><?php echo $user['userRole']; ?></td>
+
+													<td>
+														<div class="visible-md visible-lg hidden-sm hidden-xs">
+															<form action="" method="post">
+																<input type="submit" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit" value="delete" name="del">
+																<input type="submit" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit" value="edit" name="edit">
+																<input type="hidden" value="<?php echo $user['userId'] ;?>" name="i">
+																<input type="hidden" value="<?php echo $user['firstName'] ;?>" name="f">
+																<input type="hidden" value="<?php echo $user['lastName'] ;?>" name="l">
+																<input type="hidden" value="<?php echo $user['email'] ;?>" name="e">
+																<input type="hidden" value="<?php echo $user['password'] ;?>" name="p">
+																<input type="hidden" value="<?php echo $user['phoneNum'] ;?>" name="ph">
+																<input type="hidden" value="<?php echo $user['country'] ;?>" name="c">
+																<input type="hidden" value="<?php echo $user['city'] ;?>" name="ci">
+															</form>
+														</div>
+
+													</td>
+												</tr>
+
+											<?php
+												$cnt = $cnt + 1;
+											} ?>
+
+
+										</tbody>
+									</table>
+									<div class="kkk" style="text-align: right; margin-top: 10px;">
+										<button class="lll" onclick="window.location.href='add-user.php'">Add User</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+				<!-- end: BASIC EXAMPLE -->
+				<!-- end: SELECT BOXES -->
+
 			</div>
-			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
-			<!-- end: FOOTER -->
-		
-			<!-- start: SETTINGS -->
-			
-			<!-- end: SETTINGS -->
+		</div>
+		</div>
+		<!-- start: FOOTER -->
+		<!-- end: FOOTER -->
+
+		<!-- start: SETTINGS -->
+
+		<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->
 		<script src="vendor/jquery/jquery.min.js"></script>
@@ -109,5 +210,6 @@ $_SESSION['msg']="data deleted !!";
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
-</html>
-<?php } ?>
+
+	</html>
+<?php  ?>

@@ -1,7 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 
-<?php require_once('../include/headLinks.php'); ?>
+<?php 
+require_once('../include/headLinks.php'); 
+session_start();
+?>
 
 <body>
     <!--[if lte IE 9]>

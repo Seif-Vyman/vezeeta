@@ -1,6 +1,7 @@
 <?php
-
+require_once '../../Controllers/ProductController.php';
 class User{
+  protected $db;
   private $firstName;
   private $lastName; 
   private $password; 
@@ -8,7 +9,9 @@ class User{
   private $userRole; 
   private $phoneNum; 
   private $country;
+  private $city;
   private $userId;
+
 
   // setrs and geters - start
   public function setFirstName($fName){
@@ -32,30 +35,46 @@ class User{
   public function setUserId($id){
     $this->userId = $id;
   }
+  public function setPhoneNum($phoneNum){
+    $this->phoneNum = $phoneNum;
+  }
+  public function setCity($city){
+    $this->city = $city;
+  }
   /////////////////////////////////////////////////
   public function getFirstName(){
     return $this->firstName;
   }
-  public function getLastName($LName){
+  public function getLastName(){
     return $this->lastName;
   }
-  public function getPassword($pass){
+  public function getPassword(){
     return $this->password;
   }
-  public function getEmail($email){
+  public function getEmail(){
     return $this->email;
   }
-  public function getUserRole($role){
+  public function getUserRole(){
     return $this->userRole;
   }
-  public function getCountry($country){
+  public function getCountry(){
     return $this->country;
   }
-  public function getUserId($id){
+  public function getUserId(){
     return $this->userId;
   }
+  public function getPhoneNum(){
+    return $this->phoneNum;
+  }
+  public function getCity(){
+    return $this->city;
+  }
   // setrs and geters - end
+  public function addToCart(Product $product){
+    $this->db = new ProductController;
+    $this->db->addtoCart($this , $product);
 
+  }
   
 
 }

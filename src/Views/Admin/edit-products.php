@@ -1,17 +1,49 @@
 <?php
+require_once '../../Models/Product.php';
+require_once '../../Controllers/DBController.php';
+require_once '../../Controllers/AuthController.php';
+require_once '../../Controllers/ProductController.php';
 session_start();
-error_reporting(0);
-include('include/config.php');
-if(strlen($_SESSION['id']==0)) {
- header('location:logout.php');
-  } else{
+//print_r($_SESSION);
+//error_reporting(0);
+$db = new DBController;
+$pharmacy = new ProductController;
+$products = $pharmacy->getAllProducts();
+//$db->openConnection();
+if (strlen($_SESSION['userId'] == 0)) {
+	header('location: logout.php');
+} else {
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Update Products</title>
+
+	if(isset($_POST['del'])){
 		
+		//print_r($_POST);
+		
+		  if ($pharmacy->deleteProduct($_POST['i'])) {
+			$deleteMsg = true;
+			
+			$products = $pharmacy->getAllProducts();
+			 header('Location: edit-products.php');
+		  }
+	}
+
+	if(isset($_POST['edit'])){
+		
+				$_SESSION['Ei'] =  $_POST["i"];
+        $_SESSION['En'] = $_POST['n'];
+        $_SESSION['Ep'] = $_POST['p'];
+        $_SESSION['Eq'] = $_POST['q'];
+        $_SESSION['Eim'] = $_POST['im'];
+		header('Location: edit.php');
+		  }
+	}
+?>
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<title>Admin | View Products</title>
+
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
@@ -26,46 +58,115 @@ if(strlen($_SESSION['id']==0)) {
 		<link rel="stylesheet" href="assets/css/styles.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-
-
 	</head>
+
 	<body>
-		<div id="app">		
-<?php include('include/sidebar.php');?>
+		<div id="app">
+			<?php include('include/sidebar.php'); ?>
 			<div class="app-content">
-				
-						<?php include('include/header.php');?>
-						
+
+				<?php include('include/header.php'); ?>
+
 				<!-- end: TOP NAVBAR -->
-				<div class="main-content" >
+				<div class="main-content">
 					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Update Products</h1>
-																	</div>
+									<h1 class="mainTitle">Admin | View Products</h1>
+								</div>
 								<ol class="breadcrumb">
+									<li>
+										<span>Admin</span>
+									</li>
 									<li class="active">
-										<span>Update Products</span>
+										<span>View Products</span>
 									</li>
 								</ol>
 							</div>
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
-						
-						<!-- end: BASIC EXAMPLE -->				
+						<div class="container-fluid container-fullw bg-white">
+
+
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Products</span></h5>
+									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
+										<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
+									<table class="table table-hover" id="sample-table-1">
+										<thead>
+											<tr>
+												<th class="center">ID</th>
+												<th class="hidden-xs">Name</th>
+												<th>Price </th>
+												<th>Quantity </th>
+												<th>Image </th>
+												<th>Action</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$cnt = 0;
+											   foreach($products as $product ){
+											?>
+
+												<tr>
+													<td class="center"><?php echo $product['prodId']; ?>.</td>
+													<td><?php echo $product['prodName']; ?></td>
+													<td><?php echo $product['prodPrice']; ?></td>
+													<td><?php echo $product['quantity']; ?></td>
+													<td><?php echo $product['image']; ?>
+													</td>
+
+													<td>
+														<div class="visible-md visible-lg hidden-sm hidden-xs">
+															
+															<form action="" method="post">
+																<input type="submit" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit" value="delete" name = "del">
+																<input type="submit" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit" value="edit" name="edit">
+																<input type="hidden" value="<?php echo $product['prodId'] ?>" name="i">
+																<input type="hidden" value="<?php echo $product['prodName'] ?>" name="n">
+																<input type="hidden" value="<?php echo $product['prodPrice'] ?>" name="p">
+																<input type="hidden" value="<?php echo $product['quantity'] ?>" name="q">
+																<input type="hidden" value="<?php echo $product['image'] ?>" name="im">
+															</form>
+															
+														</div>
+
+													</td>
+												</tr>
+
+											<?php
+												$cnt = $cnt + 1;
+											} ?>
+
+
+										</tbody>
+									</table>
+									<div class="kkk" style="text-align: right; margin-top: 10px;">
+										<button class="lll" onclick="window.location.href='add-products.php'">Add Product</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+				<!-- end: BASIC EXAMPLE -->
+				<!-- end: SELECT BOXES -->
+
 			</div>
-			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
-			<!-- end: FOOTER -->
-		
-			<!-- start: SETTINGS -->
-			
-			<!-- end: SETTINGS -->
+		</div>
+		</div>
+		<!-- start: FOOTER -->
+		<!-- end: FOOTER -->
+
+		<!-- start: SETTINGS -->
+
+		<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->
 		<script src="vendor/jquery/jquery.min.js"></script>
@@ -98,5 +199,6 @@ if(strlen($_SESSION['id']==0)) {
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
-</html>
-<?php } ?>
+
+	</html>
+<?php  ?>

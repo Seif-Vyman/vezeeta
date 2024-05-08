@@ -12,13 +12,14 @@
   <header>
     <h1>Welcome, Dr. [Doctor's Name]</h1>
     <nav>
-      <ul>
+    <ul>
         <li><a href="docDraft.php">Profile</a></li>
         <li><a href="updateDoc.php">Update Details</a></li>
         <li><a href="ansDoc.php">Answer Questions</a></li>
         <li><a href="schedDoc.php">Scheduled Appointments</a></li>
-        <li><a href="#postblog">Post Blog</a></li>
-        <li><a href="#logout">Logout</a></li>
+        <li><a href="updateAppointments.php">Update Appointments</a></li>
+        <li><a href="blog.php">Post Blog</a></li>
+        <li><a href="../Auth/logout.php">Logout</a></li>
       </ul>
     </nav>
   </header>

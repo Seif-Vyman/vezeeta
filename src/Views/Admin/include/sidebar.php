@@ -39,14 +39,10 @@
 						</li>
 						<li>
 							<a href="add-user.php">
-								<span class="title"> Add Account </span>
+								<span class="title"> Add User </span>
 							</a>
 						</li>
-						<li>
-							<a href="remove-user.php">
-								<span class="title"> Remove Account </span>
-							</a>
-						</li>
+						
 
 					</ul>
 				</li>
@@ -57,23 +53,25 @@
 								<i class="ti-files"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> Update Products </span>
+								<span class="title"> Products </span><i class="icon-arrow"></i>
 							</div>
 						</div>
 					</a>
-				</li>
-				<li>
-					<a href="reports.php">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-files"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> Reports </span>
-							</div>
-						</div>
-					</a>
-				</li>
+					<ul class="sub-menu">
+                        <li>
+							<a href="edit-products.php">
+								<span class="title"> View Products </span>
+							</a>
+						</li>
+						<li>
+							<a href="add-products.php">
+								<span class="title"> Add Products </span>
+							</a>
+						</li>
+						
+						
+
+					</ul>
 				</li>
 
 			</ul>

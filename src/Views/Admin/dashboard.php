@@ -1,8 +1,12 @@
 <?php
 session_start();
 error_reporting(0);
-include('include/config.php');
-if (strlen($_SESSION['id'] == 0)) {
+require_once '../../Controllers/DBController.php';
+
+$db = new DBController;
+$db->openConnection();
+//rint_r($_SESSION);
+if (strlen($_SESSION['userId'] == 0)) {
 	header('location:logout.php');
 } else {
 
@@ -13,6 +17,7 @@ if (strlen($_SESSION['id'] == 0)) {
 
 	<head>
 		<title>Admin | Dashboard</title>
+		
 
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -86,82 +91,40 @@ if (strlen($_SESSION['id'] == 0)) {
 												<h2 class="StepTitle">View Users</h2>
 											</a>
 
-											<p class="cl-effect-1">
-												<a href="manage-doctors.php">
-													<?php $result1 = mysqli_query($con, "SELECT * FROM doctors ");
-													$num_rows1 = mysqli_num_rows($result1); {
-													?>
-														Total Users :<?php echo htmlentities($num_rows1);
-																				} ?>
-												</a>
-
-											</p>
+											
 										</div>
 									</div>
 								</div>
+								
 								<div class="col-sm-4">
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
-											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
-											<a href="remove-user.php">
-												<h2 class="StepTitle"> Delete User</h2>
+											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
+											<a href="add-products.php">
+												<h2 class="StepTitle">Add Product</h2>
 											</a>
 
 											<p class="links cl-effect-1">
-												<a href="">
-													<a href="">
+												<a href="add-user.php">
 
-													</a>
 												</a>
 											</p>
 										</div>
 									</div>
 								</div>
-
 								<div class="col-sm-4">
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
-											<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
-											<a href="reports.php">
-												<h2 class="StepTitle">Reports</h2>
-											</a>
-
-											<p class="links cl-effect-1">
-												<a href="manage-patient.php">
-													<?php $result = mysqli_query($con, "SELECT * FROM tblpatient ");
-													$num_rows = mysqli_num_rows($result); {
-													?>
-														Total reports :<?php echo htmlentities($num_rows);
-																					} ?>
-												</a>
-											</p>
-										</div>
-									</div>
-								</div>
-
-
-
-								<div class="col-sm-4">
-									<div class="panel panel-white no-radius text-center">
-										<div class="panel-body">
-											<span class="fa-stack fa-2x"> <i class="ti-files fa-1x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-users fa-stack-1x fa-inverse"></i> </span>
 											<a href="edit-products.php">
-												<h2 class="StepTitle">Update Products</h2>
+												<h2 class="StepTitle">View Products</h2>
 											</a>
 
-											<p class="links cl-effect-1">
-												<a href="manage-patient.php">
-													<?php $result = mysqli_query($con, "SELECT * FROM tblpatient ");
-													$num_rows = mysqli_num_rows($result); {
-													?>
-														Total reports :<?php echo htmlentities($num_rows);
-																					} ?>
-												</a>
-											</p>
+											
 										</div>
 									</div>
 								</div>
-
+								
 							</div>
 						</div>
 
@@ -176,7 +139,6 @@ if (strlen($_SESSION['id'] == 0)) {
 				</div>
 			</div>
 			<!-- start: FOOTER -->
-			<?php include('include/footer.php'); ?>
 			<!-- end: FOOTER -->
 
 			<!-- start: SETTINGS -->

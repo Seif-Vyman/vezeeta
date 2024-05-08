@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,16 +20,20 @@
         <li><a href="updateDoc.php">Update Details</a></li>
         <li><a href="ansDoc.php">Answer Questions</a></li>
         <li><a href="schedDoc.php">Scheduled Appointments</a></li>
-        <li><a href="#postblog">Post Blog</a></li>
-        <li><a href="#logout">Logout</a></li>
+        <li><a href="updateAppointments.php">Update Appointments</a></li>
+        <li><a href="blog.php">Post Blog</a></li>
+        <li><a href="../Auth/logout.php">Logout</a></li>
       </ul>
     </nav>
   </header>
   <section id="update-details">
     <h2 style="margin-bottom: 20px">Update Your Details</h2>
     <form action="#" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="name" name="firstName" required>
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="name" name="lastName" required>
 
       <label for="speciality">Speciality:</label>
       <input type="text" id="speciality" name="speciality" required>

@@ -1,3 +1,14 @@
+<?php 
+session_start();
+require_once('../../Controllers/DBController.php');
+require_once('../../Models/Doctor.php');
+
+$db = new DBController;
+$doc = new Doctor;
+$appointments = $doc->getAppointments("booked");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,41 +21,38 @@
 
 <body>
   <header>
-    <h1>Welcome, Dr. [Doctor's Name]</h1>
+    <h1>Welcome, Dr. <?php echo $_SESSION['userName']; ?></h1>
     <nav>
-      <ul>
+    <ul>
         <li><a href="docDraft.php">Profile</a></li>
         <li><a href="updateDoc.php">Update Details</a></li>
         <li><a href="ansDoc.php">Answer Questions</a></li>
         <li><a href="schedDoc.php">Scheduled Appointments</a></li>
-        <li><a href="#postblog">Post Blog</a></li>
-        <li><a href="#logout">Logout</a></li>
+        <li><a href="updateAppointments.php">Update Appointments</a></li>
+        <li><a href="blog.php">Post Blog</a></li>
+        <li><a href="../Auth/logout.php">Logout</a></li>
       </ul>
     </nav>
   </header>
   <section id="appointments">
     <h2>Scheduled Appointments</h2>
     <ul>
+      <?php 
+        foreach($appointments as $appointment){
+      ?>
       <li>
         <span>
-          <strong>Date:</strong> [Appointment Date]<br>
+          <strong>Date:</strong><?php echo $appointment['date'] ?><br>
         </span><br>
         <span>
-          <strong>Time:</strong> [Appointment Time]<br>
+          <strong>Time:</strong><?php echo $appointment['time'] ?> <br>
         </span><br>
         <span>
-          <strong>Type:</strong> [Appointment Type]<br>
-        </span><br>
-        <span>
-          <strong>Patient Name:</strong> [Patient's Name]<br>
+          <strong>Patient Name:</strong><?php echo $appointment['firstName']." ".$appointment['lastName'] ?><br>
         </span><br>
       </li>
-      <li>
-        <strong>Date:</strong> [Appointment Date]<br><br>
-        <strong>Time:</strong> [Appointment Time]<br><br>
-        <strong>Type:</strong> [Appointment Type]<br><br>
-        <strong>Patient Name:</strong> [Patient's Name]<br><br>
-      </li>
+      <?php } ?>
+      
       <!-- Repeat for each appointment -->
     </ul>
   </section>

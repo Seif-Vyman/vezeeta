@@ -6,7 +6,7 @@
 							<i class="ti-align-justify"></i>
 						</a>
 						<a class="navbar-brand" href="#">
-							<h2 style="padding-top:20%; color:#000 ">HCC</h2>
+							<h2 style="padding-top:20%; color:#000 "></h2>
 						</a>
 						<a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
 							<i class="ti-align-justify"></i>
@@ -22,7 +22,7 @@
 						<ul class="nav navbar-right">
 							<!-- start: MESSAGES DROPDOWN -->
 								<li  style="padding-top:2% ">
-								<h2>Health Care Center</h2>
+								<h2></h2>
 							</li>
 						
 						
@@ -40,7 +40,9 @@
 										<a href="logout.php">
 											Log Out
 										</a>
+					
 									</li>
+									
 								</ul>
 							</li>
 							<!-- end: USER OPTIONS DROPDOWN -->

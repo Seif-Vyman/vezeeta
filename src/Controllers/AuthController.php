@@ -13,8 +13,12 @@ class AuthController
     {
         $this->db=new DBController;
         if($this->db->openConnection())
-        {
-            $query="select * from users where email='$user->email' and password ='$user->password'";
+        { 
+            
+            $email=$user->getEmail();
+            $pass=$user->getPassword();
+           print_r($user);
+            $query="select * from user where email ='$email' and password ='$pass'";
             $result=$this->db->select($query);
             if($result===false)
             {
@@ -25,23 +29,34 @@ class AuthController
             {
                 if(count($result)==0)
                 {
-                    session_start();
-                    $_SESSION["errMsg"]="You have entered wrong email or password";
+                    header("location: ../Auth/error.php");
+                    //print_r($result);
+                     $_SESSION["errMsg"]="You have entered wrong email or password";
+                    // echo $_SESSION["errMsg"];
                     $this->db->closeConnection();
                     return false;
                 }
                 else
                 {
-                    session_start();
-                    $_SESSION["userId"]=$result[0]["id"];
-                    $_SESSION["userName"]=$result[0]["name"];
-                    if($result[0]["roleId"]==1)
+             
+                    //session_start();
+                    $_SESSION = array();
+                    $_SESSION["userId"]=$result[0]["userId"];
+                    //$docid = $_SESSION["userId"];
+                    $_SESSION["userName"]=$result[0]["firstName"] ." " . $result[0]["lastName"] ;
+                    if($result[0]["userRole"]=="Doctor")
+                    {
+                        $_SESSION["userRole"]="Doctor";
+                    }
+                    if($result[0]["userRole"]=="Patient")
+                    {
+                        $_SESSION["userRole"]="Patient";
+                      
+                    }
+                    if($result[0]["userRole"]=="Admin")
                     {
                         $_SESSION["userRole"]="Admin";
-                    }
-                    else
-                    {
-                        $_SESSION["userRole"]="Client";
+                      
                     }
                     $this->db->closeConnection();
                     return true;
@@ -58,21 +73,42 @@ class AuthController
     {
         $this->db=new DBController;
         if($this->db->openConnection())
-        {
-            $query="insert into users values ('','$user->name','$user->email','$user->password',2)";
+        {   
+            //print_r($user);
+            $firstName=$user->getFirstName();
+            $lastName=$user->getLastName();
+            $email=$user->getEmail();
+            $pass=$user->getPassword();
+            $role = $user->getUserRole();
+            $phone = $user->getPhoneNum();
+            $country = $user->getCountry();
+            $check="select * from user where email ='$email'";
+            $result1 = $this->db->select($check);
+            if(count($result1)>0)
+            {
+                // header("location: ../Auth/error.php");
+
+                // $_SESSION["errMsg"]="You have entered wrong email or password";
+                // echo $_SESSION["errMsg"];
+                $this->db->closeConnection();
+                return false;
+            }            
+            $query="insert into user values ('','$firstName','$lastName','$pass','$email','$role', 
+            '$phone' , 'Egypt' , 'Cairo' )";
             $result=$this->db->insert($query);
             if($result!=false)
             {
                 session_start();
-                $_SESSION["userId"]=$result;
-                $_SESSION["userName"]=$user->name;
-                $_SESSION["userRole"]="Client";
+                $_SESSION["userId"]=$result[0]["userId"];
+                $fullName = $firstName . " " . $lastName;
+                $_SESSION["userName"]=$fullName;
+                $_SESSION["userRole"]="Patient";
                 $this->db->closeConnection();
                 return true;
             }
             else
             {
-                $_SESSION["errMsg"]="Somthing went wrong... try again later";
+                $_SESSION["errMsg"]="Something went wrong... try again later";
                 $this->db->closeConnection();
                 return false;
             }

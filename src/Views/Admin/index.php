@@ -4,23 +4,8 @@ error_reporting(0);
 include("include/config.php");
 if(isset($_POST['submit']))
 {
-$uname=$_POST['username'];
-$upassword=$_POST['password'];
 
-$ret=mysqli_query($con,"SELECT * FROM admin WHERE username='$uname' and password='$upassword'");
-$num=mysqli_fetch_array($ret);
-if($num>0)
-{
-$_SESSION['login']=$_POST['username'];
-$_SESSION['id']=$num['id'];
-header("location:dashboard.php");
 
-}
-else
-{
-$_SESSION['errmsg']="Invalid username or password";
-
-}
 }
 ?>
 
@@ -65,7 +50,7 @@ $_SESSION['errmsg']="Invalid username or password";
 							</p>
 							<div class="form-group">
 								<span class="input-icon">
-									<input type="text" class="form-control" name="username" placeholder="Username">
+									<input type="text" class="form-control" name="email" placeholder="Email">
 									<i class="fa fa-user"></i> </span>
 							</div>
 							<div class="form-group form-actions">

@@ -1,14 +1,160 @@
+<?php
+require_once '../../Models/user.php';
+require_once '../../Controllers/AuthController.php';
+require_once '../../Controllers/DBController.php';
+
+session_start();
+$db=new DBController;
+$db->openConnection();
+if(!isset($_SESSION["userId"]))
+{
+ // session_start();
+}
+$errMsg="";
+if (isset($_POST['patsub1'])){
+//if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['contact']) && isset($_POST['cpassword'])) 
+//{
+  //if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['lname']) && !empty($_POST['contact']) && !empty($_POST['cpassword'])) 
+  //{
+    $user=new User;
+    $auth=new AuthController;
+    $userRole="Patient";
+    //print_r($_POST);
+    $user->setFirstName($_POST['fname']);
+    $user->setEmail($_POST['email']);
+    $user->setPassword($_POST['password']);
+    $user->setLastName($_POST['lname']);
+    $user->setPhoneNum($_POST['contact']);
+    $user->setUserRole("$userRole");
+    //$user->hello();
+    if($auth->register($user))
+    {
+      header("location: ../Patient/index.php");
+    }
+    else
+    {
+      $errMsg=$_SESSION["errMsg"];
+    }
+
+  }
+  else
+  {
+    $errMsg="Please fill all fields";
+  }
+
+//}
+//}
+
+if (isset($_POST['docsub1'])){
+
+
+  if(isset($_POST['email']) && isset($_POST['password3']))
+  {
+      if(!empty($_POST['email']) && !empty($_POST['password3']) )
+      {   
+          $user=new User;
+          $auth=new AuthController;
+          $user->setEmail($_POST['email']);
+          $user->setPassword($_POST['password3']);
+          if(!$auth->login($user))
+          {
+              if(!isset($_SESSION["userId"]))
+              {
+                 // session_start();
+              }
+              $errMsg=$_SESSION["errMsg"];
+          }
+          else
+          {
+              if(!isset($_SESSION["userId"]))
+              {
+                  session_start();
+              }
+              if($_SESSION["userRole"]=="Doctor")
+              {
+                $docid = $_SESSION["userId"];
+                // $_SESSION["userRole"]="Doctor";
+                $docinfo="SELECT *FROM doctor JOIN user ON doctor.userId = user.userId where doctor.userId = '$docid'";
+                
+                $result2 = $db->select($docinfo);
+                $_SESSION['firstName'] = $result2[0]['firstName']; 
+                $_SESSION['lastName'] = $result2[0]['lastName']; 
+                $_SESSION['speciality'] = $result2[0]['speciality']; 
+                $_SESSION['fees'] = $result2[0]['fees']; 
+                $_SESSION['description'] = $result2[0]['description']; 
+                $_SESSION['address'] = $result2[0]['address']; 
+                $_SESSION['rating'] = $result2[0]['rating']; 
+                header("location: ../../Views/Doctor/docDraft.php");
+              }
+              else
+              {
+                  header("location: error.php");
+              }
+  
+          }
+  
+        }         
+      }
+      else
+      {
+          $errMsg="Please fill all fields";
+      }
+  }
+
+if (isset($_POST['adsub'])){
+  if (isset($_POST['email1']) && isset($_POST['password2'])) 
+  {
+    
+    
+        if(!empty($_POST['email1']) && !empty($_POST['password2']) )
+        {   
+            $user=new User;
+            $auth=new AuthController;
+            $user->setEmail($_POST['email1']);
+            $user->setPassword($_POST['password2']);
+            if(!$auth->login($user))
+            {
+                if(!isset($_SESSION["userId"]))
+                {
+                    session_start();
+                }
+                $errMsg=$_SESSION["errMsg"];
+            }
+            else
+            {
+                
+                if($_SESSION["userRole"]=="Admin")
+                {
+                    print_r($_SESSION);
+                    header("location: ../Admin/dashboard.php");
+                }
+                else
+                {
+                    header("location: error.php");
+                }
+    
+            }
+    
+          }         
+        }
+        else
+        {
+            $errMsg="Please fill all fields";
+        }
+    }
+  
+?>
 <html>
 <head>
 	<title>HMS</title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-<link rel="stylesheet" type="text/css" href="style1.css">
+<link rel="stylesheet" type="text/css" href="../../css/style1.css">
 <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../css/vendor/fontawesome/css/font-awesome.min.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <style >
@@ -105,13 +251,13 @@ function checklen()
                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Doctor</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Receptionist</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Register as Patient</h3>
-                                <form method="post" action="func2.php">
+                                <form method="post" action="">
                                 <div class="row register-form">
                                     
                                     <div class="col-md-6">
@@ -161,11 +307,11 @@ function checklen()
                             
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Login as Doctor</h3>
-                                <form method="post" action="func1.php">
+                                <form method="post" action="">
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="User Name *" name="username3" onkeydown="return alphaOnly(event);" required/>
+                                            <input type="text" class="form-control" placeholder="Your Email *" name="email" required/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -182,11 +328,11 @@ function checklen()
 
                             <div class="tab-pane fade show" id="admin" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Login as Admin</h3>
-                                <form method="post" action="func3.php">
+                                <form method="post" action="">
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="User Name *" name="username1" onkeydown="return alphaOnly(event);" required/>
+                                            <input type="text" class="form-control" placeholder="Email *" name="email1" onkeydown="return alphaOnly(event);" required/>
                                         </div>
                                         
 
