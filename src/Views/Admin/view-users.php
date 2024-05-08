@@ -60,14 +60,15 @@ if (strlen($_SESSION['userId'] == 0)) {
 		<link rel="stylesheet" href="assets/css/styles.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+		<link rel="stylesheet" href="../assets/admin-assets/css/themes/theme-1.css" id="skin_color" />
 	</head>
 
 	<body>
 		<div id="app">
-			<?php include('include/sidebar.php'); ?>
+			<?php include('../include/admin-sidebar.php'); ?>
 			<div class="app-content">
 
-				<?php include('include/header.php'); ?>
+			<?php include('../include/admin-header.php'); ?>
 
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content">

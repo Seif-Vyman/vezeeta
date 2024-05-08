@@ -11,8 +11,8 @@ $db = new DBController;
 //$products = $pharmacy->addProduct(Product $product);
 //include('include/config.php');
 if (strlen($_SESSION['userId'] == 0)) {
-	//header('location:logout.php');
-	print_r($_SESSION);
+	header('location:logout.php');
+	//print_r($_SESSION);
 } else {
 
 	if (isset($_POST['submit'])) {
@@ -83,10 +83,10 @@ if (strlen($_SESSION['userId'] == 0)) {
 
 	<body>
 		<div id="app">
-			<?php include('include/sidebar.php'); ?>
+			<?php include('../include/admin-sidebar.php'); ?>
 			<div class="app-content">
 
-				<?php include('include/header.php'); ?>
+				<?php include('../include/admin-header.php'); ?>
 
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content">
