@@ -50,7 +50,7 @@
     <title>Doctor Profile</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="../assets/images/x-icon" href="img/favicon.png">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../css/magnific-popup.css">
@@ -62,7 +62,7 @@
     <link rel="stylesheet" href="../../css/animate.css">
     <link rel="stylesheet" href="../../css/slicknav.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="doctor_profile.css">
+    <link rel="stylesheet" href="../assets/css/doctor_profile.css">
 
     <style>
         .book-appointment {
@@ -138,8 +138,8 @@
                             echo '<div class="feedback-container">';
                             foreach ($feedbacks as $feedback) {
                                 echo '<li>';
-                                echo '<strong>Patient Name:</strong> ' . $feedbacks->getPatientName() . '<br>';
-                                echo '<strong>Feedback:</strong> ' . $feedbacks->getContent() . '<br>';
+                                echo '<strong>Patient Name:</strong> ' . $feedback->getPatientName() . '<br>';
+                                echo '<strong>Feedback:</strong> ' . $feedback->getContent() . '<br>';
                                 echo '</li><br>';
                             }
                             echo '</div>';

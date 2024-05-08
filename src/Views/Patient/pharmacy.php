@@ -47,8 +47,8 @@ if (isset($_POST['add'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- <link rel="manifest" href="site.webmanifest"> -->
-  <link rel="shortcut icon" type="../images/x-icon" href="../images/favicon.png">
-  <link rel="icon" href="../images/media/search/round_search_white_24dp.png" type="image/icon type">
+  <link rel="shortcut icon" type="../assets/images/x-icon" href="../assets/images/favicon.png">
+  <link rel="icon" href="../assets/images/media/search/round_search_white_24dp.png" type="image/icon type">
   <!-- Place favicon.ico in the root directory -->
 
   <!-- CSS here -->
@@ -66,7 +66,7 @@ if (isset($_POST['add'])){
   <!-- <link rel="stylesheet" href="../../css/searchbar.css"> -->
   <style>
     .breadcam_bg_3 {
-      background-image: url(../images/banner/bradcam4.jpg);
+      background-image: url(../assets/images/banner/bradcam4.jpg);
     }
 
     .cart_button {
@@ -384,8 +384,8 @@ if (isset($_POST['add'])){
       <div role="search" class="search">
         <form action="" method="get">
         <input tabindex="1" id="search-bar-js" class="searchbar" type="search" aria-label="Search text" placeholder="Search..." name="search">
-        <button tabindex="-1" class="searchbutton" id="close-img-js" aria-label="Cancel"><img src="../images/media/close/round_close_black_24dp.png" alt="cancel" class="closeimg globalsearchremove" class="searchbutton" id="close-img-js" aria-label="Cancel"></button>
-        <button tabindex="2" class="searchbutton" name = "searchButton" id="search-img-js" aria-label="Search"><img src="../images/media/search/round_search_black_24dp.png" alt="search" class="searchimg"></button>
+        <button tabindex="-1" class="searchbutton" id="close-img-js" aria-label="Cancel"><img src="../assets/images/media/close/round_close_black_24dp.png" alt="cancel" class="closeimg globalsearchremove" class="searchbutton" id="close-img-js" aria-label="Cancel"></button>
+        <button tabindex="2" class="searchbutton" name = "searchButton" id="search-img-js" aria-label="Search"><img src="../assets/images/media/search/round_search_black_24dp.png" alt="search" class="searchimg"></button>
       </div>
         </form>
         
@@ -419,7 +419,7 @@ if (isset($_POST['add'])){
             <form action="" method="post">
               <div class="single_expert mb-40">
                 <div class="expert_thumb">
-                  <img src="../images/pharmacy/detol.jpg" alt="">
+                  <img src="../assets/images/pharmacy/detol.jpg" alt="">
                 </div>
                 <div class="experts_name text-center">
                   <h3><?php echo $product['prodName'] . " $" . $product['prodPrice']; ?></h3>

@@ -30,9 +30,9 @@ if(isset($_GET['del']))
 		<link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
 		<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
 		<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="assets/css/styles.css">
-		<link rel="stylesheet" href="assets/css/plugins.css">
-		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+		<link rel="stylesheet" href="../assets/admin-assets/css/styles.css">
+		<link rel="stylesheet" href="../assets/admin-assets/css/plugins.css">
+		<link rel="stylesheet" href="../assets/admin-assets/css/themes/theme-1.css" id="skin_color" />
 	</head>
 	<body>
 		<div id="app">		
@@ -94,9 +94,9 @@ if(isset($_GET['del']))
 		<script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<!-- start: CLIP-TWO JAVASCRIPTS -->
-		<script src="assets/js/main.js"></script>
+		<script src="../assets/admin-assets/js/main.js"></script>
 		<!-- start: JavaScript Event Handlers for this page -->
-		<script src="assets/js/form-elements.js"></script>
+		<script src="../assets/admin-assets/js/form-elements.js"></script>
 		<script>
 			jQuery(document).ready(function() {
 				Main.init();

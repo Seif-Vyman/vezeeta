@@ -113,10 +113,10 @@ session_start();
                 <div class="col-xl-6 col-lg-6">
                     <div class="welcome_thumb">
                         <div class="thumb_1">
-                            <img src="../images/about/1.png" alt="">
+                            <img src="../assets/images/about/1.png" alt="">
                         </div>
                         <div class="thumb_2">
-                            <img src="../images/about/2.png" alt="">
+                            <img src="../assets/images/about/2.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@ session_start();
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="../images/department/1.png" alt="">
+                            <img src="../assets/images/department/1.png" alt="">
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Eye Care</a></h3>
@@ -168,7 +168,7 @@ session_start();
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="../images/department/2.png" alt="">
+                            <img src="../assets/images/department/2.png" alt="">
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Physical Therapy</a></h3>
@@ -180,7 +180,7 @@ session_start();
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="../images/department/3.png" alt="">
+                            <img src="../assets/images/department/3.png" alt="">
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Dental Care</a></h3>
@@ -192,7 +192,7 @@ session_start();
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="../images/department/4.png" alt="">
+                            <img src="../assets/images/department/4.png" alt="">
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Diagnostic Test</a></h3>
@@ -204,7 +204,7 @@ session_start();
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="../images/department/5.png" alt="">
+                            <img src="../assets/images/department/5.png" alt="">
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Skin Surgery</a></h3>
@@ -216,7 +216,7 @@ session_start();
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="../images/department/6.png" alt="">
+                            <img src="../assets/images/department/6.png" alt="">
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Surgery Service</a></h3>
@@ -345,7 +345,7 @@ session_start();
                                             </div>
                                             <div class="col-xl-6 col-md-6">
                                                 <div class="business_thumb">
-                                                    <img src="../images/about/business.png" alt="">
+                                                    <img src="../assets/images/about/business.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -366,7 +366,7 @@ session_start();
                                             </div>
                                             <div class="col-xl-6 col-md-6">
                                                 <div class="business_thumb">
-                                                    <img src="../images/about/business.png" alt="">
+                                                    <img src="../assets/images/about/business.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -387,7 +387,7 @@ session_start();
                                             </div>
                                             <div class="col-xl-6 col-md-6">
                                                 <div class="business_thumb">
-                                                    <img src="../images/about/business.png" alt="">
+                                                    <img src="../assets/images/about/business.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -414,7 +414,7 @@ session_start();
                     <div class="expert_active owl-carousel">
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="../images/experts/1.png" alt="">
+                                <img src="../assets/images/experts/1.png" alt="">
                             </div>
                             <div class="experts_name text-center">
                                 <h3>Mirazul Alom</h3>
@@ -423,7 +423,7 @@ session_start();
                         </div>
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="../images/experts/2.png" alt="">
+                                <img src="../assets/images/experts/2.png" alt="">
                             </div>
                             <div class="experts_name text-center">
                                 <h3>Mirazul Alom</h3>
@@ -432,7 +432,7 @@ session_start();
                         </div>
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="../images/experts/3.png" alt="">
+                                <img src="../assets/images/experts/3.png" alt="">
                             </div>
                             <div class="experts_name text-center">
                                 <h3>Mirazul Alom</h3>
@@ -441,7 +441,7 @@ session_start();
                         </div>
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="../images/experts/4.png" alt="">
+                                <img src="../assets/images/experts/4.png" alt="">
                             </div>
                             <div class="experts_name text-center">
                                 <h3>Mirazul Alom</h3>
@@ -450,7 +450,7 @@ session_start();
                         </div>
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="../images/experts/1.png" alt="">
+                                <img src="../assets/images/experts/1.png" alt="">
                             </div>
                             <div class="experts_name text-center">
                                 <h3>Mirazul Alom</h3>
@@ -459,7 +459,7 @@ session_start();
                         </div>
                         <div class="single_expert">
                             <div class="expert_thumb">
-                                <img src="../images/experts/2.png" alt="">
+                                <img src="../assets/images/experts/2.png" alt="">
                             </div>
                             <div class="experts_name text-center">
                                 <h3>Mirazul Alom</h3>

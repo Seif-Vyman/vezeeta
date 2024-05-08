@@ -31,7 +31,7 @@ if(isset($_POST['remove'])){
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="cart-page.css">
+        <link rel="stylesheet" href="../assets/css/cart-page.css">
         <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -109,7 +109,7 @@ if(isset($_POST['remove'])){
                 </div>
             </div>
         </div>
-        <!-- <script src="cart page."></script> -->
+        <!-- <script src="../assets/js/cart_page.js"></script> -->
     </body>
     
     <?php require_once('../include/footer.php'); ?>

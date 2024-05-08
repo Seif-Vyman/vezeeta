@@ -16,8 +16,8 @@ class AuthController
         { 
             
             $email=$user->getEmail();
-            $pass=$user->getPassword();
-           print_r($user);
+            $pass=hash('sha256',$user->getPassword());
+           //print_r($user);
             $query="select * from user where email ='$email' and password ='$pass'";
             $result=$this->db->select($query);
             if($result===false)
@@ -78,7 +78,7 @@ class AuthController
             $firstName=$user->getFirstName();
             $lastName=$user->getLastName();
             $email=$user->getEmail();
-            $pass=$user->getPassword();
+            $pass=hash('sha256',$user->getPassword());
             $role = $user->getUserRole();
             $phone = $user->getPhoneNum();
             $country = $user->getCountry();
