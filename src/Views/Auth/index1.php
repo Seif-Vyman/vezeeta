@@ -18,8 +18,8 @@ if (isset($_POST['patsub'])){
         if(!empty($_POST['uname']) && !empty($_POST['password']) )
         {   
             $user=new User;
-            $auth=new AuthController;
-            $db = new DBController;
+            $auth=AuthController::singleton();
+            $db = DBController::singleton();
             $user->setEmail($_POST['uname']);
             $user->setPassword($_POST['password']);
             if(!$auth->login($user))
@@ -53,6 +53,7 @@ if (isset($_POST['patsub'])){
                   $_SESSION['password'] = $result2[0]['password']; 
                   $_SESSION['phoneNum'] = $result2[0]['phoneNum']; 
                   $_SESSION['country'] = $result2[0]['country']; 
+                  $_SESSION['city'] = $result2[0]['city']; 
 
                     //print_r($_SESSION);
                  header("location: ../../Views/Patient/index.php");

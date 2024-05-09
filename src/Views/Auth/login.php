@@ -4,7 +4,7 @@ require_once '../../Controllers/AuthController.php';
 require_once '../../Controllers/DBController.php';
 
 session_start();
-$db=new DBController;
+$db=DBController::singleton();
 $db->openConnection();
 if(!isset($_SESSION["userId"]))
 {
@@ -17,7 +17,7 @@ if (isset($_POST['patsub1'])){
   //if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['lname']) && !empty($_POST['contact']) && !empty($_POST['cpassword'])) 
   //{
     $user=new User;
-    $auth=new AuthController;
+    $auth=AuthController::singleton();
     $userRole="Patient";
     //print_r($_POST);
     $user->setFirstName($_POST['fname']);
@@ -53,7 +53,7 @@ if (isset($_POST['docsub1'])){
       if(!empty($_POST['email']) && !empty($_POST['password3']) )
       {   
           $user=new User;
-          $auth=new AuthController;
+          $auth=AuthController::singleton();
           $user->setEmail($_POST['email']);
           $user->setPassword($_POST['password3']);
           if(!$auth->login($user))
@@ -74,8 +74,10 @@ if (isset($_POST['docsub1'])){
               {
                 $docid = $_SESSION["userId"];
                 // $_SESSION["userRole"]="Doctor";
-                $docinfo="SELECT *FROM doctor JOIN user ON doctor.userId = user.userId where doctor.userId = '$docid'";
-                
+                $docinfo="SELECT * FROM doctor JOIN user ON doctor.userId = user.userId where doctor.userId = '$docid'";
+                //echo $docid;
+                //print_r($docinfo);
+                $db->openConnection();
                 $result2 = $db->select($docinfo);
                 $_SESSION['firstName'] = $result2[0]['firstName']; 
                 $_SESSION['lastName'] = $result2[0]['lastName']; 
@@ -109,7 +111,7 @@ if (isset($_POST['adsub'])){
         if(!empty($_POST['email1']) && !empty($_POST['password2']) )
         {   
             $user=new User;
-            $auth=new AuthController;
+            $auth=AuthController::singleton();
             $user->setEmail($_POST['email1']);
             $user->setPassword($_POST['password2']);
             if(!$auth->login($user))
@@ -332,7 +334,7 @@ function checklen()
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Email *" name="email1" onkeydown="return alphaOnly(event);" required/>
+                                            <input type="text" class="form-control" placeholder="Email *" name="email1"  required/>
                                         </div>
                                         
 

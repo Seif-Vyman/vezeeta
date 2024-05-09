@@ -6,22 +6,38 @@ require_once '../../Controllers/UsersController.php';
 require_once '../../Models/user.php';
 require_once '../../Models/patient.php';
 $err = "";
-$dbController = new DBController();
+$dbController = DBController::singleton();
 
 session_start();
 if (empty($_SESSION['userId']))
     header("location: ../Auth/login.php");
-
 if (isset($_POST['save'])) {
-    $Userss = new UsersController();
-    $userInfo = $Userss->UpdateUser($_SESSION["userId"], $_POST['FName'], $_POST['LName'], $_POST['email'], $_POST['country'], $_POST['phone']);
-    
+    $Userss = UsersController::singleton();
+    $user = new User;
+    $_SESSION['firstName'] = $_POST['FName'];
+    $_SESSION['lastName'] = $_POST['LName'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['country'] = $_POST['country'];
+    $_SESSION['city'] = $_POST['city'];
+    $_SESSION['phoneNum'] = $_POST['phone'];
+    /////////////////////
+    $user->setUserId($_SESSION['userId']);
+    $user->setFirstName($_SESSION['firstName']);
+    $user->setlastName($_SESSION['lastName']);
+    $user->setEmail($_SESSION['email']);
+    $user->setPassword($_SESSION['password']);
+    $user->setPhoneNum($_SESSION['phoneNum']);
+    $user->setCountry($_SESSION['country']);
+    $user->setCity($_SESSION['city']);
+    $user->setUserRole($_SESSION['userRole']);
+    //print_r($user);
+    $userInfo = $Userss->UpdateUser($user);
 }
 
 
-if (isset($_POST['save']) && $_POST['pass'] == $_SESSION['password']) {
-    $userchangepass = new UsersController();
-    $userchangepass->ChangePassword($_SESSION["userId"], $_POST['password']);
+if (isset($_POST['save']) && hash('sha256',$_POST['pass']) == $_SESSION['password']) {
+    $userchangepass = UsersController::singleton();
+    $userchangepass->ChangePassword($_SESSION["userId"], hash('sha256',$_POST['password']));
 } else {
     if (isset($_POST['save']) && $_POST['pass'] != null) {
         $err = "Wrong password try again";
@@ -29,7 +45,7 @@ if (isset($_POST['save']) && $_POST['pass'] == $_SESSION['password']) {
 }
 
 if (isset($_POST['save'])) {
-    $addinsurance = new UsersController();
+    $addinsurance = UsersController::singleton();
     $addinsurance->AddInsurance($_SESSION["userId"], $_POST['Insurance'], $_POST['IDNumber'], $_POST['birthdate'], $_POST['ExpiryDate']);
 }
 
@@ -134,6 +150,16 @@ if (isset($_POST['save'])) {
                                                                                                                 echo $_SESSION['country'];
                                                                                                             } else if (isset($_POST['save']) && $_POST['country'] != null) {
                                                                                                                 echo $_POST['country'];
+                                                                                                            } else {
+                                                                                                                echo "";
+                                                                                                            } ?>>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">City</label>
+                                        <input type="text" class="form-control mb-1" name="city" value=<?php if ($_SESSION['city'] != null) {
+                                                                                                                echo $_SESSION['city'];
+                                                                                                            } else if (isset($_POST['save']) && $_POST['city'] != null) {
+                                                                                                                echo $_POST['city'];
                                                                                                             } else {
                                                                                                                 echo "";
                                                                                                             } ?>>

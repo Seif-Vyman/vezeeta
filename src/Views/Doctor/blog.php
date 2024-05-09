@@ -29,7 +29,7 @@
 
 
 
-  $db = new DBController;
+  $db = DBController::singleton();
   $doc = new Doctor; 
   // $doc->setEmail($_SESSION['email']);
 

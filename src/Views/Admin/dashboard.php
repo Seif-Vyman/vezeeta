@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 require_once '../../Controllers/DBController.php';
 
-$db = new DBController;
+$db = DBController::singleton();
 $db->openConnection();
 //rint_r($_SESSION);
 if (strlen($_SESSION['userId'] == 0)) {

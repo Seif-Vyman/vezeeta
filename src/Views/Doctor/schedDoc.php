@@ -3,7 +3,7 @@ session_start();
 require_once('../../Controllers/DBController.php');
 require_once('../../Models/Doctor.php');
 
-$db = new DBController;
+$db = DBController::singleton();
 $doc = new Doctor;
 $appointments = $doc->getAppointments("booked");
 

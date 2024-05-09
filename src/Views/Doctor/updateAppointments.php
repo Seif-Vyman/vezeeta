@@ -13,7 +13,7 @@ if (isset($_SESSION["userName"])) {
   header("Location: ../Auth/login.php");
 }
 
-$db = new DBController;
+$db = DBController::singleton();
 $doc = new Doctor;
 $appointments = $doc->getAppointments("available");
 

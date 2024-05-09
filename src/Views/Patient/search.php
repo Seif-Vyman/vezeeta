@@ -19,7 +19,7 @@ include '../include/header.php';
 // $connection = $database->conn;
 
  
- ?>
+?>
 
 
 <div class="search-container">
@@ -52,7 +52,7 @@ include '../include/header.php';
             private $connection;
             public function __construct() {
                 // $db = new Database();
-                $db = new DBController();
+                $db = DBController::singleton();
                 $db->openConnection();
                 $this->connection = $db->getConnection();
             }

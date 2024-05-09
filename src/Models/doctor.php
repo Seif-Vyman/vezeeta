@@ -68,7 +68,7 @@ class Doctor
   //geters and seters - end
   public function getAppointments($status)
   {
-    $this->db = new DBController;
+    $this->db = DBController::singleton();
     $docId = $_SESSION['userId'];
     if ($this->db->openConnection()) {
       if($status == 'booked')
@@ -83,7 +83,7 @@ class Doctor
   }
   public function deleteSchedule($id)
   {
-    $this->db = new DBController;
+    $this->db = DBController::singleton();
     if ($this->db->openConnection()) {
       $query = "delete from schedule where id = $id";
       return $this->db->delete($query);
@@ -95,7 +95,7 @@ class Doctor
 
   public function addSchedule()
   {
-    $this->db = new DBController;
+    $this->db = DBController::singleton();
     if ($this->db->openConnection()) {
       $date = date($_SESSION['date']);
       $time = date($_SESSION['time']);
@@ -109,7 +109,7 @@ class Doctor
   }
   public function postBlog($header, $content)
   {
-    $this->db = new DBController;
+    $this->db = DBController::singleton();
     if ($this->db->openConnection()) {
       // $content = text($blog);
       // $content = mysqli_real_escape_string($this->db->openConnection(), $blog);
@@ -128,7 +128,7 @@ class Doctor
   }
   public function displayAppointments($doctorId)
   {
-    $this->db = new DBController;
+    $this->db = DBController::singleton();
     // $doctorId = $_SESSION['userId'];
     $this->db->openConnection();
     $query = "SELECT * FROM schedule WHERE doctorId = '$doctorId'";

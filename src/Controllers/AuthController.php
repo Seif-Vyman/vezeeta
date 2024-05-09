@@ -2,16 +2,27 @@
 
 require_once '../../Models/user.php';
 require_once '../../Controllers/DBController.php';
+require_once '../../Controllers/UsersController.php';
 class AuthController
 {
     protected $db;
-
+    protected $userController;
+    private static $instance;
     //1. Open connection.
     //2. Run query & logic.
     //3. Close connection
+    private function __construct(){}
+
+
+    public static function singleton(){
+        if(!isset(self::$instance)){
+            self::$instance = new self();
+        }
+        return self::$instance;;
+    }
     public function login(User $user)
     {
-        $this->db=new DBController;
+        $this->db=DBController::singleton();
         if($this->db->openConnection())
         { 
             
@@ -71,37 +82,31 @@ class AuthController
     }
     public function register(User $user)
     {
-        $this->db=new DBController;
+        $this->db=DBController::singleton();
+        $this->userController=UsersController::singleton();
         if($this->db->openConnection())
         {   
             //print_r($user);
-            $firstName=$user->getFirstName();
-            $lastName=$user->getLastName();
-            $email=$user->getEmail();
-            $pass=hash('sha256',$user->getPassword());
-            $role = $user->getUserRole();
-            $phone = $user->getPhoneNum();
-            $country = $user->getCountry();
-            $check="select * from user where email ='$email'";
+            $user->setCountry("Egypt");
+            $user->setCity("City");
+            $check="select * from user where email ='".$user->getEmail()."'";
             $result1 = $this->db->select($check);
             if(count($result1)>0)
             {
                 // header("location: ../Auth/error.php");
 
-                // $_SESSION["errMsg"]="You have entered wrong email or password";
+                 $_SESSION["errMsg"]="You have been enter registerd Email";
                 // echo $_SESSION["errMsg"];
                 $this->db->closeConnection();
                 return false;
             }            
-            $query="insert into user values ('','$firstName','$lastName','$pass','$email','$role', 
-            '$phone' , 'Egypt' , 'Cairo' )";
-            $result=$this->db->insert($query);
+            
+            $result=$this->userController->addUser($user);
             if($result!=false)
             {
                 session_start();
                 $_SESSION["userId"]=$result[0]["userId"];
-                $fullName = $firstName . " " . $lastName;
-                $_SESSION["userName"]=$fullName;
+                $_SESSION["userName"]= $user->getFirstName() . " " . $user->getLastName();
                 $_SESSION["userRole"]="Patient";
                 $this->db->closeConnection();
                 return true;

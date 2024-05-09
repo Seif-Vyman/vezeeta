@@ -6,7 +6,7 @@ require_once '../../Controllers/ProductController.php';
 session_start();
 //print_r($_SESSION);
 //error_reporting(0);
-$db = new DBController;
+$db = DBController::singleton();
 $product = new Product;
 $product->setId($_SESSION['Ei']);
 $product->setName($_SESSION['En']);
@@ -14,7 +14,7 @@ $product->setPrice($_SESSION['Ep']);
 $product->setQuantity($_SESSION['Eq']);
 $product->setImage($_SESSION['Eim']);
 //print_r($_SESSION);	
-//$pharmacy = new ProductController;
+//$pharmacy = ProductController::singleton();
 //$products = $pharmacy->addProduct(Product $product);
 //include('include/config.php');
 if (strlen($_SESSION['userId'] == 0)) {
@@ -22,7 +22,7 @@ if (strlen($_SESSION['userId'] == 0)) {
 } else {
 
 	if (isset($_POST['save'])) {
-    $productss = new ProductController();
+    $productss = ProductController::singleton();
 		$product->setName($_POST['name']);
 		$product->setPrice($_POST['price']);
 		$product->setQuantity($_POST['quantity']);

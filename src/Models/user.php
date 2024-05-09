@@ -14,6 +14,17 @@ class User{
 
 
   // setrs and geters - start
+  // public function __construct($firstName , $lastName , $password , $email , $userRole , $phoneNum , $country , $city)
+  // {
+  //   $this->$firstName = $firstName;
+  //   $this->$lastName = $lastName; 
+  //   $this->$password = $password; 
+  //   $this->$email = $email;
+  //   $this->$userRole = $userRole; 
+  //   $this->$phoneNum = $phoneNum; 
+  //   $this->$country = $country;
+  //   $this->$city = $city;
+  // }
   public function setFirstName($fName){
     $this->firstName = $fName;
   }
@@ -71,7 +82,7 @@ class User{
   }
   // setrs and geters - end
   public function addToCart(Product $product){
-    $this->db = new ProductController;
+    $this->db = ProductController::singleton();
     $this->db->addtoCart($this , $product);
 
   }

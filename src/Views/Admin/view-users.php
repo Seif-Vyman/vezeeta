@@ -6,8 +6,8 @@ require_once '../../Controllers/UsersController.php';
 session_start();
 // print_r($_SESSION);
 //error_reporting(0);
-$db = new DBController;
-$new = new UsersController;
+$db = DBController::singleton();
+$new = UsersController::singleton();
 $users = $new->getAllUsers();
 //$db->openConnection();
 

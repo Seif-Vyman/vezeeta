@@ -9,7 +9,7 @@ class Patient extends User
 
   public function bookAppointment($appointmentId, $id)
   {
-    $this->db = new DBController;
+    $this->db = DBController::singleton();
     if ($this->db->openConnection()) {
       $id = $_SESSION['userId'];
       $updateQuery = "UPDATE schedule SET status = 'booked' , patientId = '$id' WHERE id = '$appointmentId'";
@@ -23,7 +23,7 @@ class Patient extends User
     }
   }
   public function getAllBlogs(){
-    $this->db=new DBController;
+    $this->db=DBController::singleton();
          if($this->db->openConnection())
          {
             $query="select * from blog";

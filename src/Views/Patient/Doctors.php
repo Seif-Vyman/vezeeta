@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -47,7 +50,7 @@
     <div class="expert_doctors_area doctor_page">
     <?php
     require_once '../../Controllers/DBController.php'; 
-    $db= new DBController();
+    $db= DBController::singleton();
     $db->openConnection();
     $query = "SELECT * FROM user JOIN doctor ON user.userId = doctor.userId
     WHERE user.userRole = 'doctor'";

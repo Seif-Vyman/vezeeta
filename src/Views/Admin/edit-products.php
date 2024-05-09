@@ -6,8 +6,8 @@ require_once '../../Controllers/ProductController.php';
 session_start();
 //print_r($_SESSION);
 //error_reporting(0);
-$db = new DBController;
-$pharmacy = new ProductController;
+$db = DBController::singleton();
+$pharmacy = ProductController::singleton();
 $products = $pharmacy->getAllProducts();
 //$db->openConnection();
 if (strlen($_SESSION['userId'] == 0)) {

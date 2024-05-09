@@ -6,7 +6,7 @@
         require_once '../../Models/user.php';
         require_once '../../Models/feedback.php';
         $patient = new Patient();
-        $db= new DBController();
+        $db= DBController::singleton();
         session_start(); 
         if($db->openConnection())
         {

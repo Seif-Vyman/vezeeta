@@ -2,12 +2,12 @@
 require_once '../../Models/Product.php';
 require_once '../../Controllers/DBController.php';
 require_once '../../Controllers/AuthController.php';
-require_once '../../Controllers/ProductController.php';
+require_once '../../Controllers/UsersController.php';
 session_start();
 //print_r($_SESSION);
 //error_reporting(0);
-$db = new DBController;
-//$pharmacy = new ProductController;
+$controller = UsersController::singleton();
+//$pharmacy = ProductController::singleton();
 //$products = $pharmacy->addProduct(Product $product);
 //include('include/config.php');
 if (strlen($_SESSION['userId'] == 0)) {
@@ -15,24 +15,21 @@ if (strlen($_SESSION['userId'] == 0)) {
 } else {
 
 	if (isset($_POST['submit'])) {
-		$firstName = $_POST['firstName'];
-		$lastName = $_POST['lastName'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$phoneNum = $_POST['phoneNum'];
-		$country = $_POST['country'];
-		$city = $_POST['city'];
-        $userRole = $_POST['userRole'];
+		$user = new User;
+		$user->setFirstName($_POST['firstName']);
+		$user->setlastName($_POST['lastName']);
+		$user->setEmail($_POST['email']);
+		$user->setPassword($_POST['password']);
+		$user->setPhoneNum($_POST['phoneNum']);
+		$user->setCountry($_POST['country']);
+		$user->setCity($_POST['city']);
+		$user->setUserRole($_POST['userRole']);
 
-
-		$db->openConnection();
-
-		$result = $db->insert("INSERT INTO user (firstName, lastName, email, password, phoneNum, country, city, userRole) VALUES ('$firstName', '$lastName', '$email', '$password', '$phoneNum', '$country', '$city', '$userRole')");
-		if ($result !== false) {
+		if ($controller->addUser($user)) {
 			echo "<script>alert('user info added Successfully');</script>";
 			echo "<script>window.location.href ='view-users.php'</script>";
 		} else {
-			echo "Error: " . mysqli_error($db->connection);
+			echo "Erorr";
 		}
 	}
 ?>
@@ -90,7 +87,7 @@ if (strlen($_SESSION['userId'] == 0)) {
 			<?php include('../include/admin-sidebar.php'); ?>
 			<div class="app-content">
 
-			<?php include('../include/admin-header.php'); ?>
+				<?php include('../include/admin-header.php'); ?>
 
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content">
@@ -181,13 +178,15 @@ if (strlen($_SESSION['userId'] == 0)) {
 															<label for="userrole">
 																User Role
 															</label>
-															<select name="userRole" class="form-control" placeholder="Enter User Role" required="true">
+															<select name="userRole" class="form-control" placeholder="Enter User Role"  onchange="addInputBoxes();  ">
 																<option value="">Select User Role</option>
 																<option value="Patient">Patient</option>
 																<option value="Doctor">Doctor</option>
 															</select>
 														</div>
-
+														<div id="docInputs">
+																	<!-- script print here -->
+														</div>
 
 
 
@@ -213,10 +212,30 @@ if (strlen($_SESSION['userId'] == 0)) {
 				</div>
 				<!-- end: BASIC EXAMPLE -->
 
+				<!-- doc inputs start-->
+		
+				<script>
+					function addInputBoxes() {
+						var selectValue = document.getElementById("userRole").value;
+						var inputContainer = document.getElementById("docInputs");
+						inputContainer.innerHTML = ""; // Clear previous inputs
 
+						if (selectValue === "Doctor") {
+							// Array of placeholder values for doctor
+							var placeholders = ["Specialty", "Experience", "Education", "Certification", "License"];
 
+							// Add input boxes for doctor
+							for (var i = 0; i < placeholders.length; i++) {
+								var input = document.createElement("input");
+								input.type = "text";
+								input.placeholder = placeholders[i];
+								inputContainer.appendChild(input);
+							}
+						}
+					}
+				</script>
 
-
+				<!-- doc inputs end -->
 
 				<!-- end: SELECT BOXES -->
 

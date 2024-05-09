@@ -4,7 +4,7 @@
 session_start();
 require_once('../../Controllers/ProductController.php');
 require_once('../../Models/user.php');
-$pharmacy = new ProductController;
+$pharmacy = ProductController::singleton();
 
 if(isset($_GET['searchButton'])){
   if(!empty($_GET['search'])){

@@ -6,7 +6,7 @@ require_once '../../Models/user.php';
 session_start();
 // print_r($_SESSION);
 //error_reporting(0);
-$db = new DBController;
+$db = DBController::singleton();
 $user = new User;
 $user->setFirstName($_SESSION['Ef']);
 $user->setLastName($_SESSION['El']);
@@ -18,7 +18,7 @@ $user->setCity($_SESSION['Eci']);
 $user->setUserId($_SESSION['Ei']);
 
 //print_r($user);
-//$pharmacy = new ProductController;
+//$pharmacy = ProductController::singleton();
 //$products = $pharmacy->addProduct(Product $product);
 //include('include/config.php');
 if (strlen($_SESSION['userId'] == 0)) {
@@ -27,7 +27,7 @@ if (strlen($_SESSION['userId'] == 0)) {
 
     if (isset($_POST['save'])) {
         print_r($_POST);
-        $Userss = new UsersController();
+        $Userss = UsersController::singleton();
         $user->setFirstName($_POST['fName']);
         $user->setLastName($_POST['lName']);
         $user->setEmail($_POST['Email']);

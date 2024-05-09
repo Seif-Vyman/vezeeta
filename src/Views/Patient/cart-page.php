@@ -14,7 +14,7 @@ if(!isset($_SESSION['userId'])){
 //     header("location:../Auth/login.php ");
 //   }
 // }
-$controller = new ProductController;
+$controller = ProductController::singleton();
 
 $products = $controller->getAllCartProducts($_SESSION['userId']);
 //print_r($products);

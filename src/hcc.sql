@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 04:13 PM
+-- Generation Time: May 09, 2024 at 09:13 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -50,8 +50,7 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`drId`, `doctorName`, `date`, `header`, `content`) VALUES
-(2, 'seif ayman', '2024-05-06', 'Hello World', 'programming is fun'),
-(2, 'seif ayman', '2024-05-06', 'Blog ON', 'Set the fire to the Rain');
+(21, 'seif ayman', '2024-05-09', 'this is the first blog for me welcome back', 'suuuuuuuiiiiiiiiiiiiiiiiii');
 
 -- --------------------------------------------------------
 
@@ -73,8 +72,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`userId`, `productId`, `productName`, `productPrice`, `productImage`, `productQuantity`) VALUES
-(1, 2, 'panadol', 550, '', '1'),
-(1, 4, 'detol', 600, '', '1');
+(22, 15, 'dettol', 30, '', '1'),
+(22, 15, 'dettol', 30, '', '1');
 
 -- --------------------------------------------------------
 
@@ -96,8 +95,7 @@ CREATE TABLE `doctor` (
 --
 
 INSERT INTO `doctor` (`userId`, `speciality`, `fees`, `address`, `rating`, `description`) VALUES
-(2, 'qweqweqwe', 678, 'asdasd', 5, ''),
-(4, 'dentist', 0, 'tagamo\'a 5 - new egypt', 1, '');
+(21, 'dentist', 600, 'blablabla', 9, 'Iam a doctor');
 
 -- --------------------------------------------------------
 
@@ -148,7 +146,7 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`userId`, `insurance`, `IDNumber`, `birthdate`, `expiryDate`) VALUES
-(1, 'Select Insurance', 0, '0000-00-00', '0000-00-00');
+(22, 'Axa', 2147483647, '2024-05-21', '2024-06-01');
 
 -- --------------------------------------------------------
 
@@ -169,12 +167,7 @@ CREATE TABLE `pharmacy` (
 --
 
 INSERT INTO `pharmacy` (`prodId`, `prodName`, `prodPrice`, `quantity`, `image`) VALUES
-(2, '5od panadol', 700, 3, ''),
-(3, '50d 7asasya', 60, 1, ''),
-(4, 'detol', 600, 1, ''),
-(6, 'tramadol', 900, 1, ''),
-(8, 'ketofaaaaaaaaan 2', 350, 6, 'Jude Bellingham.jpg'),
-(9, 'katafast', 5, 20, 'detol.jpg');
+(15, 'dettol', 30, 20, '');
 
 -- --------------------------------------------------------
 
@@ -196,15 +189,7 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`id`, `doctorId`, `date`, `time`, `status`, `patientId`) VALUES
-(48, 2, '2024-05-15', '12:30:00', 'booked', 1),
-(49, 2, '2024-05-21', '02:00:00', 'booked', 1),
-(50, 2, '2024-05-31', '18:30:00', 'booked', 1),
-(51, 2, '2024-05-01', '01:00:00', 'available', NULL),
-(52, 2, '2024-05-02', '02:00:00', 'available', NULL),
-(53, 2, '2024-05-03', '03:00:00', 'available', NULL),
-(54, 2, '2024-05-04', '04:00:00', 'available', NULL),
-(55, 2, '2024-05-07', '07:00:00', 'available', NULL),
-(56, 2, '2024-05-09', '14:00:00', 'available', NULL);
+(57, 21, '2024-05-11', '22:00:00', 'booked', 22);
 
 -- --------------------------------------------------------
 
@@ -229,12 +214,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `firstName`, `lastName`, `password`, `email`, `userRole`, `phoneNum`, `country`, `city`) VALUES
-(1, 'Ali', 'Azzam', '123456', 'ali@gmail.com', 'Patient', '2222222222', 'omeldonya', 'cairo'),
-(2, 'seif allah', 'ayman', '123', 'seif.com', 'Doctor', '01234', 'egypt', 'cairo'),
-(4, 'Halla', 'ayman', '123', 'salma.com', 'Doctor', '011111111', 'Egypt', 'Cairo'),
-(5, 'ali', 'emad', 'aliali', 'aliemad@gmail.com', 'Patient', '', '', ''),
-(10, 'aya', 'hamdy', 'ayaaya', 'aya@gmail.com', 'Admin', '1234567', 'Egypt', 'Cairo'),
-(11, 'reem', 'hafez', 'reemreem', 'reem@gmail.com', 'Patient', '01234567891', 'Egypt', 'Cairo');
+(13, 'emad', 'mahshosh', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'emad@gg.com', 'Admin', '0222222222', 'Egypt', 'Cairo'),
+(21, 'seif', 'ayman', '1d1a58513bdf66258871e284d14a6f7557d8728a2ae0a663d0099edd28a553e2', 'seif@gmail.com', 'Doctor', '010234343', 'egypt', 'giza'),
+(22, 'ali', 'Hesham', '94edf28c6d6da38fd35d7ad53e485307f89fbeaf120485c8d17a43f323deee71', 'ali@gmail.com', 'Patient', '01232324324', 'egypt', 'cairo');
 
 --
 -- Indexes for dumped tables
@@ -318,19 +300,19 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `pharmacy`
 --
 ALTER TABLE `pharmacy`
-  MODIFY `prodId` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `prodId` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `userId` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
@@ -352,7 +334,7 @@ ALTER TABLE `blog`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `patient` (`userId`),
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `pharmacy` (`prodId`);
 
 --

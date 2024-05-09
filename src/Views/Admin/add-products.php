@@ -6,8 +6,9 @@ require_once '../../Controllers/ProductController.php';
 session_start();
 //print_r($_SESSION);
 //error_reporting(0);
-$db = new DBController;
-//$pharmacy = new ProductController;
+$controller = ProductController::singleton();
+print_r($controller);
+//$pharmacy = ProductController::singleton();
 //$products = $pharmacy->addProduct(Product $product);
 //include('include/config.php');
 if (strlen($_SESSION['userId'] == 0)) {
@@ -16,20 +17,19 @@ if (strlen($_SESSION['userId'] == 0)) {
 } else {
 
 	if (isset($_POST['submit'])) {
-		$prodName = $_POST['prodName'];
-		$prodPrice = $_POST['prodPrice'];
-		$quantity = $_POST['quantity'];
-		$image = $_POST['image'];
-
-		$db->openConnection();
-
-		$result = $db->insert("INSERT INTO pharmacy (prodName, prodPrice, quantity, image) VALUES ('$prodName', '$prodPrice', '$quantity', '$image')");
-		if ($result !== false) {
+		$product = new Product;
+		$product->setName($_POST['prodName']);
+		$product->setPrice($_POST['prodPrice']);
+		$product->setQuantity($_POST['quantity']);
+		$product->setImage($_POST['image']);
+		
+		if($controller->addProduct($product)){
 			echo "<script>alert('Product info added Successfully');</script>";
 			echo "<script>window.location.href ='edit-products.php'</script>";
-		} else {
-			echo "Error: " . mysqli_error($db->connection);
+		}else{
+			echo "something went wrong";
 		}
+		
 	}
 ?>
 	<!DOCTYPE html>

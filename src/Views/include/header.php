@@ -1,6 +1,6 @@
 <?php
 require_once '../../Controllers/ProductController.php';
-$prod = new ProductController;
+$prod = ProductController::singleton();
 
 if (isset($_GET["logout"])) {
   if(!isset($_SESSION))

@@ -3,12 +3,21 @@
 class DBController
 {
 
-    public $dbHost = "localhost";
-    public $dbUser = "root";
-    public $dbPassword = "";
-    public $dbName = "hcc";
-    public $connection;
+    private $dbHost = "localhost";
+    private $dbUser = "root";
+    private $dbPassword = "";
+    private $dbName = "hcc";
+    private $connection;
+    private static $instance;
+    private function __construct(){}
 
+
+    public static function singleton(){
+        if(!isset(self::$instance)){
+            self::$instance = new self();
+        }
+        return self::$instance;;
+    }
     public function openConnection()
     {
         $this->connection = new mysqli($this->dbHost, $this->dbUser, $this->dbPassword, $this->dbName);
@@ -33,7 +42,7 @@ class DBController
     {
         $result = $this->connection->query($qry);
         if (!$result) {
-            echo "Error : " . mysqli_error($this->connection);
+            //echo "Error : " . mysqli_error($this->connection);
             return false;
         } else {
             return $result->fetch_all(MYSQLI_ASSOC);
@@ -63,6 +72,7 @@ class DBController
     public function update($qry)
     {
         $result = $this->connection->query($qry);
+        print_r($result);
         if (!$result) {
             echo "Error : " . mysqli_error($this->connection);
             return false;

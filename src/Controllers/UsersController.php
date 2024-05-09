@@ -6,31 +6,21 @@ require_once 'DBController.php';
 class UsersController
 {
     protected $db;
+    private static $instance;
 
-    // public function UpdateUser($userId, $firstName, $lastName, $email, $country, $phoneNum)
-    // {
-    //     $this->db = new DBController;
-    //     // session_start();
-    //     if ($this->db->openConnection()) {
-    //         $sql = "UPDATE user SET firstName='$firstName', lastName='$lastName', email='$email', country='$country' , phoneNum='$phoneNum'
-    //         WHERE userId=$userId";
-    //         if ($this->db->update($sql)) {
-    //             $_SESSION['firstName'] = $firstName;
-    //             $_SESSION['lastName'] = $lastName;
-    //             $_SESSION['email'] = $email;
-    //             $_SESSION['country'] = $country;
-    //             $_SESSION['phoneNum'] = $phoneNum;
-    //         } else {
-    //             echo 'Error';
-    //         }
-    //         // $result = $this->db->update($sql);
+    private function __construct(){}
 
-    //     }
-    // }
+
+    public static function singleton(){
+        if(!isset(self::$instance)){
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
 
     public function ChangePassword($userId, $pass)
     {
-        $this->db = new DBController;
+        $this->db = DBController::singleton();
 
         if ($this->db->openConnection()) {
             $sql = "UPDATE user SET password='$pass'  WHERE userId='$userId'";
@@ -40,15 +30,25 @@ class UsersController
 
     public function AddInsurance($userId, $insurance, $IDNumber, $birthdate, $expiryDate)
     {
-        $this->db = new DBController;
+        $this->db = DBController::singleton();
         if ($this->db->openConnection()) {
-            $sql = "UPDATE patient SET insurance ='$insurance' , IDNumber='$IDNumber' , birthdate='$birthdate' , expiryDate='$expiryDate' WHERE userId='$userId'";
-            return $this->db->Update($sql);
+            $sql1 = "select * from patient where userId = $userId";
+            $result = $this->db->select($sql1);
+            if($result){
+                $sql2 = "UPDATE patient SET insurance ='$insurance' , IDNumber='$IDNumber' , birthdate='$birthdate' , expiryDate='$expiryDate' WHERE userId='$userId'";
+                return $this->db->update($sql2);
+            }else{
+                $sql3 = "insert into patient values('$userId', '$insurance', '$IDNumber', '$birthdate', '$expiryDate')";
+                return $this->db->insert($sql3);
+            }
+            
+    
+            
         }
     }
     public function getAllUsers() // 
     {
-         $this->db=new DBController;
+         $this->db=DBController::singleton();
          if($this->db->openConnection())
          {
             $query="select * from user";
@@ -62,7 +62,7 @@ class UsersController
     }
     public function deleteUser($userId)
     {
-         $this->db=new DBController;
+         $this->db=DBController::singleton();
          if($this->db->openConnection())
          {
             $query="delete from user where userId = $userId";
@@ -76,14 +76,34 @@ class UsersController
     }
     
     public function UpdateUser(User $user){
-        $this->db=new DBController;
+        $this->db=DBController::singleton();
        // session_start();
         if($this->db->openConnection()){
-            $sql = "UPDATE user SET firstName='".$user->getFirstName()."', lastName='".$user->getLastName()."', email='".$user->getEmail()."', password='".$user->getPassword()."' , phoneNum='".$user->getPhoneNum()."', country='".$user->getCountry()."', city='".$user->getCity()."'
+            //print_r($user);
+            $sql = "UPDATE user SET userId = '".$user->getUserId()."',firstName='".$user->getFirstName()."', lastName='".$user->getLastName()."', email='".$user->getEmail()."', password='".$user->getPassword()."' , phoneNum='".$user->getPhoneNum()."', country='".$user->getCountry()."', city='".$user->getCity()."'
             WHERE userId='".$user->getUserId()."'";
-        return $this->db->update($sql);
+            //print_r($sql);
+            return $this->db->update($sql);
         // $result = $this->db->update($sql);
         }
 
     }
+    public function addUser(User $user){ // id , fn , ln , pass , email , role , phone , country , city
+        $this->db = DBController::singleton();
+        // session_start();
+        $user->setPassword(hash('sha256',$user->getPassword()));
+         if($this->db->openConnection()){
+             $sql = "INSERT INTO user VALUES ('', '".$user->getFirstName()."', '".$user->getLastName()."',  
+             '".$user->getPassword()."','".$user->getEmail()."','".$user->getUserRole()."' ,'".$user->getPhoneNum()."', '".$user->getCountry()."', '".$user->getCity()."')";
+            $ret = $this->db->insert($sql);
+            // if($user->getUserRole() == "Patient"){
+            //     $id = $ret[0][]
+            //     $qry = "INSERT INTO patient VALUES ('' , '','','','')";
+            //     $this->db->insert($qry);
+            // }
+            return $ret;
+         // $result = $this->db->update($sql);
+         }else return false;
+        
+     }
 }
