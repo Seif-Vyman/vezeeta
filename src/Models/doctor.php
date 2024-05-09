@@ -3,7 +3,7 @@
 require_once('../../Models/user.php');
 require_once('../../Controllers/DBController.php');
 
-class Doctor
+class Doctor extends user
 {
   private $speciality;
   private $fees;
@@ -93,13 +93,22 @@ class Doctor
     }
   }
 
-  public function addSchedule()
+  public function addSchedule(Schedule $schedule) // id , doctorId , date , time
   {
     $this->db = DBController::singleton();
     if ($this->db->openConnection()) {
-      $date = date($_SESSION['date']);
-      $time = date($_SESSION['time']);
-
+      $date = date($schedule->getDate());
+      $time = date($schedule->getTime());
+      $find = "select from schedule where doctorId = '".$_SESSION['userId']."' and date = '$date' , time = '$time'";
+      $res = $this->db->select($find);
+      if(count($res) > 0){
+        ?>
+          <script>
+              alert("This appointment already exist");
+          </script>
+        <?php
+        return false;
+      }
       $query = "insert into schedule values (''," . $_SESSION['userId'] . ",'$date', '$time','available', NULL)";
       return $this->db->insert($query);
     } else {
@@ -107,7 +116,7 @@ class Doctor
       return false;
     }
   }
-  public function postBlog($header, $content)
+  public function postBlog(Blog $blog)
   {
     $this->db = DBController::singleton();
     if ($this->db->openConnection()) {
@@ -119,7 +128,7 @@ class Doctor
       $curDate = date("Y-m-d");
 
 
-      $query = "insert into blog values (" . $_SESSION['userId'] . ",'" . $_SESSION['userName'] . "', '$curDate','$header','$content')";
+      $query = "insert into blog values (" . $_SESSION['userId'] . ",'" . $_SESSION['userName'] . "', '$curDate','".$blog->getHeader()."','".$blog->getContent()."')";
       return $this->db->insert($query);
     } else {
       echo "Error in Database Connection";

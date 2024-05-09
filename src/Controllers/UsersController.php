@@ -96,13 +96,19 @@ class UsersController
              $sql = "INSERT INTO user VALUES ('', '".$user->getFirstName()."', '".$user->getLastName()."',  
              '".$user->getPassword()."','".$user->getEmail()."','".$user->getUserRole()."' ,'".$user->getPhoneNum()."', '".$user->getCountry()."', '".$user->getCity()."')";
             $ret = $this->db->insert($sql);
-            // if($user->getUserRole() == "Patient"){
-            //     $id = $ret[0][]
-            //     $qry = "INSERT INTO patient VALUES ('' , '','','','')";
-            //     $this->db->insert($qry);
-            // }
+            
             return $ret;
-         // $result = $this->db->update($sql);
+         }else return false;
+        
+     }
+     public function addDoctor(Doctor $doctor){ // userId , speciality , fees , address , rating  , description
+        $this->db = DBController::singleton();
+        // session_start();
+         if($this->db->openConnection()){
+             $sql = "INSERT INTO doctor VALUES ('".$doctor->getUserId()."' , '".$doctor->getSpeciality()."', '".$doctor->getFees()."',  
+             '".$doctor->getAddress()."','".$doctor->getRating()."','".$doctor->getDescription()."' ) ";
+            $ret = $this->db->insert($sql);
+            return $ret;
          }else return false;
         
      }

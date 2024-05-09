@@ -93,10 +93,12 @@ class AuthController
             $result1 = $this->db->select($check);
             if(count($result1)>0)
             {
-                // header("location: ../Auth/error.php");
+                ?>
+                <script>
+                    alert("You Have been registerd before please try another Email");
+                </script>
+                <?php
 
-                 $_SESSION["errMsg"]="You have been enter registerd Email";
-                // echo $_SESSION["errMsg"];
                 $this->db->closeConnection();
                 return false;
             }            
@@ -104,6 +106,7 @@ class AuthController
             $result=$this->userController->addUser($user);
             if($result!=false)
             {
+                
                 session_start();
                 $_SESSION["userId"]=$result[0]["userId"];
                 $_SESSION["userName"]= $user->getFirstName() . " " . $user->getLastName();

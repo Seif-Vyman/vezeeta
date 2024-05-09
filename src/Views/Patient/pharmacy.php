@@ -2,9 +2,9 @@
 <html class="no-js" lang="zxx">
 <?php
 session_start();
-require_once('../../Controllers/ProductController.php');
+require_once '../../Models/pharmacy.php';
 require_once('../../Models/user.php');
-$pharmacy = ProductController::singleton();
+$pharmacy = Pharmacy::singleton();
 
 if(isset($_GET['searchButton'])){
   if(!empty($_GET['search'])){

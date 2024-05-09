@@ -1,6 +1,7 @@
 <?php
   require_once ('../../Controllers/DBController.php');
   require_once ('../../Models/Doctor.php');
+  require_once ('../../Models/Blog.php');
   session_start();
   $doc = new Doctor;
   if(isset($_SESSION["userName"])){
@@ -13,8 +14,8 @@
 
   if(isset($_POST['post'])){
     if(!empty($_POST['header']) && !empty($_POST['content'])){
-      //echo $_SESSION['firstName'];
-      if($doc->postBlog($_POST['header'],$_POST['content'])){
+      $blog = new Blog($_POST['header'],$_POST['content']);
+      if($doc->postBlog($blog)){
         header("refresh: blog.php");
       }
       else{

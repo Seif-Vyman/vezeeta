@@ -26,11 +26,11 @@ if(isset($_POST["delete"])){
   }
 }
 if(isset($_GET['add'])){
-  echo "awooooooooooooooooooooooooooooooooooooooooooooooo";
   if(!empty($_GET['date']) && !empty($_GET['time'])){
-    $_SESSION['date'] =  $_GET['date'];
-    $_SESSION['time'] =  $_GET['time'];
-    if ($doc->addSchedule()) {
+    // $_SESSION['date'] =  $_GET['date'];
+    // $_SESSION['time'] =  $_GET['time'];
+    $app = new Schedule($_GET['date'], $_GET['time']);
+    if ($doc->addSchedule($app)) {
       header("location: updateAppointments.php");
   } else {
       $errMsg = "Something went wrong... try again";

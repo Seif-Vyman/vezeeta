@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../../Controllers/DBController.php';
-require_once '../../Controllers/ProductController.php';
+require_once '../../Models/pharmacy.php';
 if(!isset($_SESSION['userId'])){
     header("location: ../Auth/login.php");
 }
@@ -14,7 +14,7 @@ if(!isset($_SESSION['userId'])){
 //     header("location:../Auth/login.php ");
 //   }
 // }
-$controller = ProductController::singleton();
+$controller = Cart::singleton();
 
 $products = $controller->getAllCartProducts($_SESSION['userId']);
 //print_r($products);

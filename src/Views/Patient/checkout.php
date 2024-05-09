@@ -1,8 +1,8 @@
 <?php
  require_once('../include/headLinks.php'); 
 require_once('../include/header.php'); 
-require_once('../../Controllers/ProductController.php');
-$controller = ProductController::singleton();
+require_once('../../Models/cart.php');
+$controller = Cart::singleton();
 if(isset($_POST['buy'])){
   $controller->removeCart();
   header('Location: sucessful-order.html');

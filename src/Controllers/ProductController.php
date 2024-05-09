@@ -67,20 +67,8 @@ class ProductController
       }
    }
 
-   public function getAllProducts() // 
-   {
-      $this->db = DBController::singleton();
-      if ($this->db->openConnection()) {
-         $query = "select * from pharmacy";
-         return $this->db->select($query);
-      } else {
-         echo "Error in Database Connection";
-         return false;
-      }
-   }
-   public function getProductsBySearch($name)
-   {
-   }
+   
+   
    public function getAllCartProducts($id) // 
    {
       $this->db = DBController::singleton();
@@ -145,6 +133,17 @@ class ProductController
   
      }else return false;
       
+   }
+   public function getAllProducts() // 
+   {
+      $this->db = DBController::singleton();
+      if ($this->db->openConnection()) {
+         $query = "select * from pharmacy";
+         return $this->db->select($query);
+      } else {
+         echo "Error in Database Connection";
+         return false;
+      }
    }
    
 }

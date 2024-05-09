@@ -1,7 +1,6 @@
 <?php
 require_once '../../Models/Product.php';
-require_once '../../Controllers/DBController.php';
-require_once '../../Controllers/AuthController.php';
+require_once '../../Models/Doctor.php';
 require_once '../../Controllers/UsersController.php';
 session_start();
 //print_r($_SESSION);
@@ -15,24 +14,15 @@ if (strlen($_SESSION['userId'] == 0)) {
 } else {
 
 	if (isset($_POST['submit'])) {
-		$user = new User;
-		$user->setFirstName($_POST['firstName']);
-		$user->setlastName($_POST['lastName']);
-		$user->setEmail($_POST['email']);
-		$user->setPassword($_POST['password']);
-		$user->setPhoneNum($_POST['phoneNum']);
-		$user->setCountry($_POST['country']);
-		$user->setCity($_POST['city']);
-		$user->setUserRole($_POST['userRole']);
-		$res = $controller->addUser($user); 
-		if ($res) {
-			if($user->getUserRole() == 'Doctor') {
-				$_SESSION['addedUser'] = $res;
-				header('Location: add-doctor.php');
-			}
-			else{
-				header('Location: dashboard.php');
-		}
+		$doctor = new Doctor;
+    $doctor->setUserId($_SESSION['addedUser']);
+		$doctor->setAddress($_POST['address']);
+    $doctor->setFees($_POST['fees']);
+    $doctor->setSpeciality($_POST['speciality']);
+    $doctor->setDescription($_POST['description']);
+    $doctor->setRating($_POST['rating']);
+		if ($controller->addDoctor($doctor)) {
+      header('Location : dashboard.php');
 		} else {
 			echo "Erorr";
 		}
@@ -42,7 +32,7 @@ if (strlen($_SESSION['userId'] == 0)) {
 	<html lang="en">
 
 	<head>
-		<title>Admin | Add User</title>
+		<title>Admin | Add Doctor</title>
 
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -92,7 +82,7 @@ if (strlen($_SESSION['userId'] == 0)) {
 			<?php include('../include/admin-sidebar.php'); ?>
 			<div class="app-content">
 
-				<?php include('../include/admin-header.php'); ?>
+				<?php // include('../include/admin-header.php'); ?>
 
 				<!-- end: TOP NAVBAR -->
 				<div class="main-content">
@@ -101,7 +91,7 @@ if (strlen($_SESSION['userId'] == 0)) {
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Add Doctor</h1>
+									<h1 class="mainTitle">Admin | Add User</h1>
 								</div>
 								<ol class="breadcrumb">
 									<li>
@@ -131,64 +121,44 @@ if (strlen($_SESSION['userId'] == 0)) {
 
 
 														<div class="form-group">
-															<label for="firstname">
-																First Name
+															<label for="speciality">
+																Speciality
 															</label>
-															<input type="text" name="firstName" class="form-control" placeholder="Enter First Name" required="true">
+															<input type="text" name="speciality" class="form-control" placeholder="Enter First Name" required="true">
 														</div>
 
 														<div class="form-group">
-															<label for="lastname">
-																Last Name
+															<label for="fees">
+																Fees
 															</label>
-															<input type="text" name="lastName" class="form-control" placeholder="Enter Last Name" required="true">
+															<input type="text" name="fees" class="form-control" placeholder="Enter Last Name" required="true">
 														</div>
 
 														<div class="form-group">
-															<label for="Email">
-																Email
+															<label for="address">
+																Address
 															</label>
-															<input type="text" name="email" class="form-control" placeholder="Enter Email" required="true">
+															<input type="text" name="address" class="form-control" placeholder="Enter Email" required="true">
 														</div>
 
 														<div class="form-group">
-															<label for="Password">
-																Password
+															<label for="rating">
+																Rating
 															</label>
-															<input type="text" name="password" class="form-control" placeholder="Enter Password" required="true">
+															<input type="number" name="rating" class="form-control" placeholder="Enter Email" required="true" min="1" max="5" step="1">
 														</div>
 
+									
 														<div class="form-group">
-															<label for="phonenum">
-																Phone Number
+															<label for="description">
+																Description
 															</label>
-															<input type="text" name="phoneNum" class="form-control" placeholder="Enter Phone Number" required="true">
+															<input type="text" name="description" class="form-control" placeholder="Enter Phone Number" required="true">
 														</div>
 
-														<div class="form-group">
-															<label for="Country">
-																Country
-															</label>
-															<input type="text" name="country" class="form-control" placeholder="Enter Country" required="true">
-														</div>
+													
 
-														<div class="form-group">
-															<label for="City">
-																City
-															</label>
-															<input type="text" name="city" class="form-control" placeholder="Enter City" required="true">
-														</div>
-
-														<div class="form-group">
-															<label for="userrole">
-																User Role
-															</label>
-															<select name="userRole" class="form-control" placeholder="Enter User Role"  onchange="addInputBoxes();  ">
-																<option value="">Select User Role</option>
-																<option value="Patient">Patient</option>
-																<option value="Doctor">Doctor</option>
-															</select>
-														</div>
+														
 														<div id="docInputs">
 																	<!-- script print here -->
 														</div>

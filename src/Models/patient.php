@@ -13,8 +13,7 @@ class Patient extends User
     if ($this->db->openConnection()) {
       $id = $_SESSION['userId'];
       $updateQuery = "UPDATE schedule SET status = 'booked' , patientId = '$id' WHERE id = '$appointmentId'";
-      if($this->db->update($updateQuery)){
-        
+      if($this->db->update($updateQuery)){    
         return true;
       }
     } else {
