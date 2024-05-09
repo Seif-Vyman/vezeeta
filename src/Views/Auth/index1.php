@@ -14,7 +14,8 @@ if (isset($_POST['patsub'])){
   if (isset($_POST['uname']) && isset($_POST['password'])) 
   {
     
-    
+       
+
         if(!empty($_POST['uname']) && !empty($_POST['password']) )
         {   
             $user=new User;
@@ -69,7 +70,11 @@ if (isset($_POST['patsub'])){
         }
         else
         {
-            $errMsg="Please fill all fields";
+            ?>
+              <script>
+                alert("Please Do not Enter Leading and Trailing Spaces")
+              </script>
+            <?php
         }
     }
 ?>

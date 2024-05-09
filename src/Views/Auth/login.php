@@ -12,10 +12,18 @@ if(!isset($_SESSION["userId"]))
 }
 $errMsg="";
 if (isset($_POST['patsub1'])){
-//if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['contact']) && isset($_POST['cpassword'])) 
-//{
-  //if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['lname']) && !empty($_POST['contact']) && !empty($_POST['cpassword'])) 
-  //{
+    
+if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['contact']) && isset($_POST['cpassword'])) 
+{
+    $_POST['email'] = trim($_POST['email']);
+    $_POST['password'] = trim($_POST['password']);
+    $_POST['fname'] = trim($_POST['fname']);
+    $_POST['lname'] = trim($_POST['lname']);
+    $_POST['contact'] = trim($_POST['contact']);
+    $_POST['cpassword'] = trim($_POST['cpassword']);
+  if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['lname']) && !empty($_POST['contact']) && !empty($_POST['cpassword'])) 
+  {
+    if(strlen($_POST['password']) < 6 or strlen($_POST['contact']) < 11 or strlen($_POST['email']) < 5){
     $user=new User;
     $auth=AuthController::singleton();
     $userRole="Patient";
@@ -36,11 +44,34 @@ if (isset($_POST['patsub1'])){
       $errMsg=$_SESSION["errMsg"];
     }
 
+  }else{
+    ?>
+    <script>
+        alert("Please Dont Add trailing and leading spaces");
+    </script>
+    <?php
   }
-  else
-  {
-    $errMsg="Please fill all fields";
-  }
+
+}else
+{
+    ?>
+    <script>
+        alert("Please Dont Add trailing and leading spaces");
+    </script>
+    <?php
+}
+}
+else
+{
+    ?>
+    <script>
+        alert("Please Fill All Fields");
+    </script>
+    <?php
+}
+
+}
+  
 
 //}
 //}
