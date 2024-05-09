@@ -21,9 +21,13 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['fname']
     $_POST['lname'] = trim($_POST['lname']);
     $_POST['contact'] = trim($_POST['contact']);
     $_POST['cpassword'] = trim($_POST['cpassword']);
-  if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['lname']) && !empty($_POST['contact']) && !empty($_POST['cpassword'])) 
+    
+  if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['contact']) && !empty($_POST['cpassword'])) 
   {
-    if(strlen($_POST['password']) < 6 or strlen($_POST['contact']) < 11 or strlen($_POST['email']) < 5){
+    $len1 = strlen($_POST['password']);
+    $len2 = strlen($_POST['contact']);
+    $len3 = strlen($_POST['email']);
+    if($len1 >= 6 && $len2 >= 10 && $len3 >= 5){
     $user=new User;
     $auth=AuthController::singleton();
     $userRole="Patient";
@@ -45,6 +49,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['fname']
     }
 
   }else{
+      
     ?>
     <script>
         alert("Please Dont Add trailing and leading spaces");
