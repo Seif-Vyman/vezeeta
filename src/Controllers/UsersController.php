@@ -60,11 +60,15 @@ class UsersController
             return false; 
          }
     }
-    public function deleteUser($userId)
+    public function deleteUser($userId , $role)
     {
          $this->db=DBController::singleton();
          if($this->db->openConnection())
          {
+            if($role == "Doctor"){
+                $query="delete from doctor where userId = $userId";
+                $this->db->delete($query);    
+            }
             $query="delete from user where userId = $userId";
             return $this->db->delete($query);
          }

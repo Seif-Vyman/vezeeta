@@ -58,33 +58,7 @@ if (strlen($_SESSION['userId'] == 0)) {
 		<link rel="stylesheet" href="../assets/admin-assets/css/styles.css">
 		<link rel="stylesheet" href="../assets/admin-assets/css/plugins.css">
 		<link rel="stylesheet" href="../assets/admin-assets/css/themes/theme-1.css" id="skin_color" />
-		<!-- <script type="text/javascript">
-			function valid() {
-				if (document.adddoc.npass.value != document.adddoc.cfpass.value) {
-					alert("Password and Confirm Password Field do not match  !!");
-					document.adddoc.cfpass.focus();
-					return false;
-				}
-				return true;
-			}
-		</script> -->
-
-
-		<!-- <script>
-			function checkemailAvailability() {
-				$("#loaderIcon").show();
-				jQuery.ajax({
-					url: "check_availability.php",
-					data: 'emailid=' + $("#docemail").val(),
-					type: "POST",
-					success: function(data) {
-						$("#email-availability-status").html(data);
-						$("#loaderIcon").hide();
-					},
-					error: function() {}
-				});
-			}
-		</script> -->
+	
 	</head>
 
 	<body>

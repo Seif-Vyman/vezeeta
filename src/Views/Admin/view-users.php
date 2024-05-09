@@ -18,9 +18,9 @@ if (strlen($_SESSION['userId'] == 0)) {
 
 	if (isset($_POST['del'])) {
 
-		// print_r($_POST);
+		
 
-		if ($new->deleteUser($_POST['i'])) {
+		if ($new->deleteUser($_POST['i'] , $_POST['r'])) {
 			$deleteMsg = true;
 
 			$users = $new->getAllUsers();
@@ -145,6 +145,7 @@ if (strlen($_SESSION['userId'] == 0)) {
 																<input type="hidden" value="<?php echo $user['phoneNum'] ;?>" name="ph">
 																<input type="hidden" value="<?php echo $user['country'] ;?>" name="c">
 																<input type="hidden" value="<?php echo $user['city'] ;?>" name="ci">
+																<input type="hidden" value="<?php echo $user['userRole'] ;?>" name="r">
 															</form>
 														</div>
 
